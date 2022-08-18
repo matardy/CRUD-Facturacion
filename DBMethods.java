@@ -136,6 +136,53 @@ public class DBMethods {
         return selectCiudad;
     }
 
+    public ArrayList<String> getNombreCiudad(){
+        ArrayList<String> nombreCiudades = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT NOMBRECIUDAD FROM CIUDAD");
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+//                String codCiudad = rs.getString("CODCIUDAD");
+//                String nombreCiudad = rs.getString("NOMBRECIUDAD");
+//                String estado = rs.getString("ESTADO");
+//                String numeroHabitantes = rs.getString("numeroHabitantes");
+//                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
+//                selectCiudad.add(ciudad);
+                nombreCiudades.add(rs.getString("NOMBRECIUDAD"));
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return nombreCiudades;
+    }
+
+    public ArrayList<String> getIDCiudad(){
+        ArrayList<String> nombreCiudades = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT CODCIUDAD FROM CIUDAD");
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+//                String codCiudad = rs.getString("CODCIUDAD");
+//                String nombreCiudad = rs.getString("NOMBRECIUDAD");
+//                String estado = rs.getString("ESTADO");
+//                String numeroHabitantes = rs.getString("numeroHabitantes");
+//                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
+//                selectCiudad.add(ciudad);
+                nombreCiudades.add(rs.getString("CODCIUDAD"));
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return nombreCiudades;
+    }
+
+
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
         //methods.setCiudad("Santa Ana", "Manabi", "12000");
@@ -143,14 +190,15 @@ public class DBMethods {
         //methods.updateCiudad(17, "Santa Ana", "Manabi", "12000");
 
 
-        ArrayList<Ciudad> foo = new ArrayList<Ciudad>();
+        //ArrayList<Ciudad> foo = new ArrayList<Ciudad>();
 //        //methods.setCiudad("New York", "New York", "1000000");
 //        //methods.deleteCiudad(18);
 //        //methods.updateCiudad(17,"Moscu", "Rusia", "160000");
-        foo = methods.searchViewCiudadByHabitantesHigher(20000);
-        for(int i=0; i<foo.size(); i++){
-            System.out.println("[ " + foo.get(i).id + " " +foo.get(i).nombreCiudad+ " " + foo.get(i).estado + " " + foo.get(i).numeroHabitantes + " ]");
-        }
+//        foo = methods.searchViewCiudadByHabitantesHigher(20000);
+//        for(int i=0; i<foo.size(); i++){
+//            System.out.println("[ " + foo.get(i).id + " " +foo.get(i).nombreCiudad+ " " + foo.get(i).estado + " " + foo.get(i).numeroHabitantes + " ]");
+//        }
+
     }
 }
 // GUI.form
