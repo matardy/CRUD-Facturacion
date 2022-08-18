@@ -136,21 +136,111 @@ public class DBMethods {
         return selectCiudad;
     }
 
+    /***
+     * Obtiene todos los nombres de ciudades
+     * @return
+     */
+    public ArrayList<String> getCiudad(){
+        ArrayList<String> nombreCiudades = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT NOMBRECIUDAD FROM CIUDAD");
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+//                String codCiudad = rs.getString("CODCIUDAD");
+//                String nombreCiudad = rs.getString("NOMBRECIUDAD");
+//                String estado = rs.getString("ESTADO");
+//                String numeroHabitantes = rs.getString("numeroHabitantes");
+//                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
+//                selectCiudad.add(ciudad);
+                nombreCiudades.add(rs.getString("NOMBRECIUDAD"));
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return nombreCiudades;
+    }
+
+    /***
+     * Obtiene los ID de las ciudades
+     * @return
+     */
+    public ArrayList<String> getIDCiudad(){
+        ArrayList<String> nombreCiudades = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT CODCIUDAD FROM CIUDAD");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                nombreCiudades.add(rs.getString("CODCIUDAD"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return nombreCiudades;
+    }
+
+    // PRODUCTO----
+    public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd){
+        String auxCod = "";
+        try{
+            stmt = conn.createStatement();
+            String query = "SELECT TOP 1 * FROM PRODUCTO ORDER BY CODPRODUCTO DESC";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                auxCod = rs.getString("CODPRODUCTO");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        String codProd = String.valueOf(Integer.parseInt(auxCod) + 1);
+
+        // Insertion
+        try{
+            prepStmt = conn.prepareStatement("INSERT INTO PRODUCTO (CODPRODUCTO, NOMPROD, DESCPPRODUCTO, UNIDADPRODUCTO, PRECIOPRODUCTO, TIPOPROD) VALUES (?,?,?,?,?,?) ");
+            prepStmt.setString(1, codProd);
+            prepStmt.setString(2, nomProd);
+            prepStmt.setString(3, descProd);
+            prepStmt.setString(4, unidadProd);
+            prepStmt.setString(5, precioProd);
+            prepStmt.setString(6, "A");
+            prepStmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteProducto(int id){
+        //TODO: Completar el metodo deleteProducto, la logica es la misma que deleteCiudad
+    }
+
+    public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd ){
+        //TODO: Completar el metodo
+    }
+
+//    public ArrayList<Producto> searchRowProducto(int id){
+//        //TODO: Completar el metodo, aqui es necesario crear la clase Producto y usar la logica de los metodos anteriores
+//        return
+//    }
+
+    public ArrayList<String> getProducto(){
+        ArrayList<String> nombresProd = new ArrayList<>();
+        // TODO: Completar
+        return nombresProd;
+    }
+
+    public ArrayList<String> getIDProducto(){
+        ArrayList<String> IDsProd = new ArrayList<>();
+        //TODO: Completar
+        return IDsProd;
+    }
+
+
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
-        //methods.setCiudad("Santa Ana", "Manabi", "12000");
-        //methods.deleteCiudad(18);
-        //methods.updateCiudad(17, "Santa Ana", "Manabi", "12000");
+        methods.setProducto("Bicicleta","0","12","12.4");
 
-
-        ArrayList<Ciudad> foo = new ArrayList<Ciudad>();
-//        //methods.setCiudad("New York", "New York", "1000000");
-//        //methods.deleteCiudad(18);
-//        //methods.updateCiudad(17,"Moscu", "Rusia", "160000");
-        foo = methods.searchViewCiudadByHabitantesHigher(20000);
-        for(int i=0; i<foo.size(); i++){
-            System.out.println("[ " + foo.get(i).id + " " +foo.get(i).nombreCiudad+ " " + foo.get(i).estado + " " + foo.get(i).numeroHabitantes + " ]");
-        }
     }
 }
 // GUI.form
