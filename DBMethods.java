@@ -147,14 +147,7 @@ public class DBMethods {
             rs = prepStmt.executeQuery();
 
             while(rs.next()){
-//                String codCiudad = rs.getString("CODCIUDAD");
-//                String nombreCiudad = rs.getString("NOMBRECIUDAD");
-//                String estado = rs.getString("ESTADO");
-//                String numeroHabitantes = rs.getString("numeroHabitantes");
-//                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
-//                selectCiudad.add(ciudad);
                 nombreCiudades.add(rs.getString("NOMBRECIUDAD"));
-
             }
 
         }catch(SQLException e){
