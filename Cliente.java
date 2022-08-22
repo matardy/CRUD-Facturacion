@@ -8,6 +8,7 @@ package ModeloGUI;
  *
  * @author DETPC
  */
+// BORRARON EL INIT COMPONENTS cuando subieron, solo tienen declarado el metodo. 
 public class Cliente extends javax.swing.JFrame {
 
     /**
