@@ -8,12 +8,12 @@ package ModeloGUI;
  *
  * @author DETPC
  */
-public class Cliente extends javax.swing.JFrame {
+public class Ventana5 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ventana1
+     * Creates new form Ventana5
      */
-    public Cliente() {
+    public Ventana5() {
         initComponents();
     }
 
@@ -30,24 +30,24 @@ public class Cliente extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jmiCerrarVentana1 = new javax.swing.JMenuItem();
+        jmiCerrarVentana5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("CLIENTE");
+        jLabel1.setText("VENTANA5");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentana1.setText("Cerrar ventana 1");
-        jmiCerrarVentana1.addActionListener(new java.awt.event.ActionListener() {
+        jmiCerrarVentana5.setText("Cerrar ventana 5");
+        jmiCerrarVentana5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiCerrarVentana1ActionPerformed(evt);
+                jmiCerrarVentana5ActionPerformed(evt);
             }
         });
-        jMenu2.add(jmiCerrarVentana1);
+        jMenu2.add(jmiCerrarVentana5);
 
         jMenuBar1.add(jMenu2);
 
@@ -58,27 +58,27 @@ public class Cliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(165, 165, 165)
                 .addComponent(jLabel1)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addComponent(jLabel1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiCerrarVentana1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana1ActionPerformed
+    private void jmiCerrarVentana5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana5ActionPerformed
         // TODO add your handling code here:
         MenuFactura obj= new MenuFactura();
         obj.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jmiCerrarVentana1ActionPerformed
+    }//GEN-LAST:event_jmiCerrarVentana5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,21 +97,20 @@ public class Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cliente().setVisible(true);
+                new Ventana5().setVisible(true);
             }
         });
     }
@@ -121,6 +120,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jmiCerrarVentana1;
+    private javax.swing.JMenuItem jmiCerrarVentana5;
     // End of variables declaration//GEN-END:variables
 }

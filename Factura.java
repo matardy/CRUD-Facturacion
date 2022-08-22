@@ -8,12 +8,12 @@ package ModeloGUI;
  *
  * @author DETPC
  */
-public class Cliente extends javax.swing.JFrame {
+public class Factura extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ventana1
+     * Creates new form Ventana4
      */
-    public Cliente() {
+    public Factura() {
         initComponents();
     }
 
@@ -30,24 +30,24 @@ public class Cliente extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jmiCerrarVentana1 = new javax.swing.JMenuItem();
+        jmiCerrarVentana4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("CLIENTE");
+        jLabel1.setText("VENTANA 4");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentana1.setText("Cerrar ventana 1");
-        jmiCerrarVentana1.addActionListener(new java.awt.event.ActionListener() {
+        jmiCerrarVentana4.setText("Cerrar ventana 4");
+        jmiCerrarVentana4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiCerrarVentana1ActionPerformed(evt);
+                jmiCerrarVentana4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jmiCerrarVentana1);
+        jMenu2.add(jmiCerrarVentana4);
 
         jMenuBar1.add(jMenu2);
 
@@ -58,27 +58,27 @@ public class Cliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(174, 174, 174)
                 .addComponent(jLabel1)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
+                .addGap(114, 114, 114)
                 .addComponent(jLabel1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiCerrarVentana1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana1ActionPerformed
+    private void jmiCerrarVentana4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana4ActionPerformed
         // TODO add your handling code here:
         MenuFactura obj= new MenuFactura();
         obj.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jmiCerrarVentana1ActionPerformed
+    }//GEN-LAST:event_jmiCerrarVentana4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,13 +97,13 @@ public class Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -111,7 +111,7 @@ public class Cliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cliente().setVisible(true);
+                new Factura().setVisible(true);
             }
         });
     }
@@ -121,6 +121,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jmiCerrarVentana1;
+    private javax.swing.JMenuItem jmiCerrarVentana4;
     // End of variables declaration//GEN-END:variables
 }
