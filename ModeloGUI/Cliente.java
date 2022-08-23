@@ -368,7 +368,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
-       // methods.deleteCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
+        methods.deleteCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
     }
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {
