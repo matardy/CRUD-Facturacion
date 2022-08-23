@@ -53,9 +53,6 @@ public class DBMethods {
             prepStmt = conn.prepareStatement("DELETE FROM CIUDAD WHERE CODCIUDAD = ?");
             prepStmt.setString(1,String.valueOf(id));
             prepStmt.executeUpdate();
-
-
-
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -79,8 +76,6 @@ public class DBMethods {
         }catch(SQLException e){
             e.printStackTrace();
         }
-
-
     }
 
     /***
@@ -205,36 +200,87 @@ public class DBMethods {
     }
 
     public void deleteProducto(int id){
-        //TODO: Completar el metodo deleteProducto, la logica es la misma que deleteCiudad
+        try{
+            prepStmt = conn.prepareStatement("DELETE FROM PRODUCTO WHERE CODPRODUCTO = ?");
+            prepStmt.setString(1,String.valueOf(id));
+            prepStmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
-    public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd ){
-        //TODO: Completar el metodo
+    public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd, String tipoProd ){
+        //TODO: Falta probar el metodo
+        try{
+            prepStmt = conn.prepareStatement("UPDATE PRODUCTO SET NOMPROD = ?, DESCPPRODUCTO = ?, UNIDADPRODUCTO = ?" +
+                    ", PRECIOPRODUCTO = ?, TIPOPROD = ? WHERE CODPRODUCTO = ? ");
+            prepStmt.setString(1, nomProd);
+            prepStmt.setString(2, descProd);
+            prepStmt.setString(3, unidadProd);
+            prepStmt.setString(4, precioProd);
+            prepStmt.setString(5, tipoProd);
+            prepStmt.setString(6, String.valueOf(id));
+            prepStmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
-//    public ArrayList<Producto> searchRowProducto(int id){
-//        //TODO: Completar el metodo, aqui es necesario crear la clase Producto y usar la logica de los metodos anteriores
-//        return
-//    }
+    public ArrayList<Producto> searchRowProducto(int id){
+        ArrayList<Producto> selectProducto = new ArrayList<Producto>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM PRODUCTO WHERE CODPRODUCTO = ?");
+            prepStmt.setString(1, String.valueOf(id));
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String codProd = rs.getString("CODPRODUCTO");
+                String nomprod = rs.getString("NOMPROD");
+                String descProd = rs.getString("DESCPRODUCTO");
+                String uniProd = rs.getString("UNIDADPRODUCTO");
+                String precioProd = rs.getString("PRECIOPRODUCTO");
+                String tipoProd = rs.getString("TIPOPROD");
+                selectProducto.add(new Producto(codProd,nomprod,descProd,uniProd,precioProd,tipoProd));
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return selectProducto;
+    }
 
     public ArrayList<String> getProducto(){
         ArrayList<String> nombresProd = new ArrayList<>();
-        // TODO: Completar
+        try{
+            prepStmt = conn.prepareStatement("SELECT NOMPROD FROM PRODUCTO");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                nombresProd.add(rs.getString("NOMPROD"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
         return nombresProd;
     }
 
     public ArrayList<String> getIDProducto(){
         ArrayList<String> IDsProd = new ArrayList<>();
-        //TODO: Completar
+        try{
+            prepStmt = conn.prepareStatement("SELECT CODPRODUCTO FROM PRODUCTO");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                IDsProd.add(rs.getString("CODPRODUCTO"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
         return IDsProd;
     }
 
 
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
-        methods.setProducto("Bicicleta","0","12","12.4");
 
     }
 }
-// GUI.form
-// GUI.java
+
