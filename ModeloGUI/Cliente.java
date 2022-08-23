@@ -351,6 +351,12 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {
         methods.setCliente((String) cmbCiudad.getSelectedItem(), txtNombreCliente.getText(), txtApellidoCliente.getText(), txtCorreo.getText(), txtSalario.getText());
+        // Para que se actualicen los comboBox
+        ArrayList<String> IDClienteArray = new ArrayList<>();
+        IDClienteArray = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
+
+
     }
 
     private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,10 +371,18 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
         methods.updateCliente(Integer.parseInt((String)cmbIDCliente.getSelectedItem()), (String) cmbCiudad.getSelectedItem(), txtNombreCliente.getText(), txtApellidoCliente.getText(), txtCorreo.getText(), txtSalario.getText());
+        // Para que se actualicen los comboBox
+        ArrayList<String> IDClienteArray = new ArrayList<>();
+        IDClienteArray = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
         methods.deleteCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
+        // Para que se actualicen los comboBox
+        ArrayList<String> IDClienteArray = new ArrayList<>();
+        IDClienteArray = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
     }
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {
