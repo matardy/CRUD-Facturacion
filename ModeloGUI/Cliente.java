@@ -335,7 +335,7 @@ public class Cliente extends javax.swing.JFrame {
     private void chkHabilitarEdicionActionPerformed(java.awt.event.ActionEvent evt) {
         if(chkHabilitarEdicion.isSelected()){
             cmbIDCliente.setEnabled(true);
-            btnEliminar.setEnabled(true);
+            btnEliminar.setEnabled(false);
             btnUpdate.setEnabled(true);
             cmbCiudad.setEnabled(true);
         }else{
