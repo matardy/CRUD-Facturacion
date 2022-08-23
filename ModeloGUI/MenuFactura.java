@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ModeloGUI;
 
 /**
@@ -65,7 +61,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
         jMenu1.setText("Opcion de factura");
 
-        jmiVentana1.setText("Cliente");
+        jmiVentana1.setText("ModeloGUI.Cliente");
         jmiVentana1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana1ActionPerformed(evt);
@@ -73,7 +69,7 @@ public class MenuFactura extends javax.swing.JFrame {
         });
         jMenu1.add(jmiVentana1);
 
-        jmiVentana2.setText("Detalle Producto");
+        jmiVentana2.setText("Detalle ModeloGUI.Producto");
         jmiVentana2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana2ActionPerformed(evt);
@@ -81,7 +77,7 @@ public class MenuFactura extends javax.swing.JFrame {
         });
         jMenu1.add(jmiVentana2);
 
-        jmiVentana3.setText("Producto");
+        jmiVentana3.setText("ModeloGUI.Producto");
         jmiVentana3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana3ActionPerformed(evt);
@@ -141,7 +137,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
     private void jmiVentana1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentana1ActionPerformed
         // TODO add your handling code here:
-        Cliente obj = new Cliente();
+        ModeloGUI.Cliente obj = new ModeloGUI.Cliente();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null); //centrar la ventana
         this.dispose(); //fija una ventana
@@ -149,7 +145,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
     private void jmiVentana4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentana4ActionPerformed
         // TODO add your handling code here:
-        Factura obj = new Factura();
+        ModeloGUI.Factura obj = new ModeloGUI.Factura();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null); //centrar la ventana
         this.dispose(); //fija una ventana
@@ -165,7 +161,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
     private void jmiVentana3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentana3ActionPerformed
         // TODO add your handling code here:
-        Producto obj = new Producto();
+        ModeloGUI.Producto obj = new ModeloGUI.Producto();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null); //centrar la ventana
         this.dispose(); //fija una ventana
@@ -173,7 +169,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
     private void jmiVentana5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentana5ActionPerformed
         // TODO add your handling code here:
-        Ventana5 obj = new Ventana5();
+        ModeloGUI.Ventana5 obj = new ModeloGUI.Ventana5();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null); //centrar la ventana
         this.dispose(); //fija una ventana

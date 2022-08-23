@@ -1,5 +1,6 @@
 
-import javax.swing.JComboBox;
+import EncapsulationObjects.Ciudad;
+
 import java.util.ArrayList;
 
 /**

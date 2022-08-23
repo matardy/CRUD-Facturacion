@@ -1,3 +1,5 @@
+package EncapsulationObjects;
+
 public class Ciudad {
     public String id;
     public String nombreCiudad;

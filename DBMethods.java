@@ -1,3 +1,5 @@
+import EncapsulationObjects.Ciudad;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -49,6 +51,14 @@ public class DBMethods {
      * @param id
      */
     public void deleteCiudad(int id){
+        boolean flag = true;
+        if(flag == true){
+            System.out.println("Error");
+        }else{
+            System.out.println("No error");
+        }
+
+
         try{
             prepStmt = conn.prepareStatement("DELETE FROM CIUDAD WHERE CODCIUDAD = ?");
             prepStmt.setString(1,String.valueOf(id));
@@ -84,7 +94,7 @@ public class DBMethods {
     }
 
     /***
-     * Busca una fila de la tabla ciudad y lo guarda en un ArrayList de objetos Ciudad
+     * Busca una fila de la tabla ciudad y lo guarda en un ArrayList de objetos EncapsulationObjects.Ciudad
      * @param id
      * @return
      */
@@ -212,8 +222,8 @@ public class DBMethods {
         //TODO: Completar el metodo
     }
 
-//    public ArrayList<Producto> searchRowProducto(int id){
-//        //TODO: Completar el metodo, aqui es necesario crear la clase Producto y usar la logica de los metodos anteriores
+//    public ArrayList<ModeloGUI.Producto> searchRowProducto(int id){
+//        //TODO: Completar el metodo, aqui es necesario crear la clase ModeloGUI.Producto y usar la logica de los metodos anteriores
 //        return
 //    }
 
