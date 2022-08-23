@@ -1,16 +1,37 @@
 package ModeloGUI;
 
+import EncapsulationObjects.CiudadEncapsulation;
+import EncapsulationObjects.ClienteEncapsulation;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author DETPC
  */
 public class Cliente extends javax.swing.JFrame {
+    DBMethods methods = new DBMethods();
 
     /**
      * Creates new form Ventana1
      */
     public Cliente() {
         initComponents();
+        ArrayList<String> IDClienteArray = new ArrayList<>();
+        IDClienteArray = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
+
+        ArrayList<String> IDCiudadArray = new ArrayList<>();
+        IDCiudadArray = methods.getIDCiudad();
+        cmbCiudad.setModel(new javax.swing.DefaultComboBoxModel(IDCiudadArray.toArray(new String[0])));
+
+        cmbIDCliente.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        jPanel1.setEnabled(false);
+        cmbCiudad.setEnabled(false);
+
+
     }
 
     /**
@@ -22,7 +43,28 @@ public class Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtApellidoCliente = new javax.swing.JTextField();
+        btnVerDatos = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        chkHabilitarEdicion = new javax.swing.JCheckBox();
+        btnInsertar = new javax.swing.JButton();
+        cmbIDCliente = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtNombreCliente = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaDatosCliente = new javax.swing.JTextArea();
+        txtSalario = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        cmbCiudad = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        lblNombreCiudad = new javax.swing.JLabel();
+        lblEstadoCiudad = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -30,7 +72,130 @@ public class Cliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("CLIENTE");
+        txtApellidoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoClienteActionPerformed(evt);
+            }
+        });
+
+        btnVerDatos.setText("Ver Datos");
+        btnVerDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDatosActionPerformed(evt);
+            }
+        });
+
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+
+        chkHabilitarEdicion.setText("Habilitar Actualizar y Eliminar");
+        chkHabilitarEdicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHabilitarEdicionActionPerformed(evt);
+            }
+        });
+
+        btnInsertar.setText("Insertar");
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
+
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbIDCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIDClienteActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("ID Cliente");
+        jLabel1.setToolTipText("ID Ciudad");
+
+        jLabel2.setText("Nombre");
+
+        jLabel3.setText("Apellido");
+
+        btnUpdate.setText("Actualizar");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Correo");
+
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreClienteActionPerformed(evt);
+            }
+        });
+
+        txtAreaDatosCliente.setColumns(20);
+        txtAreaDatosCliente.setRows(5);
+        jScrollPane1.setViewportView(txtAreaDatosCliente);
+
+        txtSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalarioActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Salario");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciudad"));
+
+        cmbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCiudadActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Codigo ciudad");
+
+        lblNombreCiudad.setText("nombre ciudad");
+
+        lblEstadoCiudad.setText("estado ciudad");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(lblNombreCiudad))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblEstadoCiudad))
+                                .addGap(76, 76, 76))
+        );
+        jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblNombreCiudad)
+                                        .addComponent(lblEstadoCiudad))
+                                .addContainerGap(50, Short.MAX_VALUE))
+        );
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -52,22 +217,94 @@ public class Cliente extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel1)
-                .addContainerGap(201, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addGap(15, 15, 15)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addComponent(btnInsertar)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                        .addComponent(btnUpdate)
+                                                                        .addGap(12, 12, 12)
+                                                                        .addComponent(btnEliminar))
+                                                                .addComponent(chkHabilitarEdicion)))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(14, 14, 14)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabel2)
+                                                                .addComponent(jLabel3)
+                                                                .addComponent(jLabel4)
+                                                                .addComponent(jLabel1)
+                                                                .addComponent(jLabel5))
+                                                        .addGap(38, 38, 38)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(txtNombreCliente)
+                                                                        .addComponent(txtApellidoCliente)
+                                                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnVerDatos)
+                                                .addGap(447, 447, 447))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(26, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel1))
+                                        .addComponent(btnVerDatos, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane1)
+                                                .addContainerGap())
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel3)
+                                                        .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(24, 24, 24)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel4)
+                                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(btnInsertar)
+                                                        .addComponent(btnUpdate)
+                                                        .addComponent(btnEliminar))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(chkHabilitarEdicion)
+                                                .addGap(111, 111, 111))))
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void jmiCerrarVentana1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana1ActionPerformed
         // TODO add your handling code here:
@@ -75,6 +312,72 @@ public class Cliente extends javax.swing.JFrame {
         obj.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiCerrarVentana1ActionPerformed
+
+
+    private void txtApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void chkHabilitarEdicionActionPerformed(java.awt.event.ActionEvent evt) {
+        if(chkHabilitarEdicion.isSelected()){
+            cmbIDCliente.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            btnUpdate.setEnabled(true);
+            jPanel1.setEnabled(true);
+            cmbCiudad.setEnabled(true);
+        }else{
+            cmbIDCliente.setEnabled(false);
+            btnEliminar.setEnabled(false);
+            btnUpdate.setEnabled(false);
+            cmbCiudad.setEnabled(false);
+            jPanel1.setEnabled(false);
+        }
+    }
+
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {
+        txtNombreCliente.setText("Probando");
+    }
+
+    private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<ClienteEncapsulation> data = new ArrayList<>();
+        data = methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
+        txtNombreCliente.setText(data.get(0).nombreCliente);
+        txtApellidoCliente.setText(data.get(0).apellidoCliente);
+        txtCorreo.setText(data.get(0).correoCliente);
+        txtSalario.setText(data.get(0).salario);
+        cmbCiudad.setSelectedItem(data.get(0).codCiudad);
+    }
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void cmbCiudadActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<CiudadEncapsulation> data = new ArrayList<>();
+        data = methods.searchRowCiudad(Integer.parseInt((String) cmbCiudad.getSelectedItem()));
+        lblNombreCiudad.setText(data.get(0).nombreCiudad);
+        lblEstadoCiudad.setText(data.get(0).estado);
+    }
 
     /**
      * @param args the command line arguments
@@ -112,11 +415,32 @@ public class Cliente extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnVerDatos;
+    private javax.swing.JCheckBox chkHabilitarEdicion;
+    private javax.swing.JComboBox<String> cmbCiudad;
+    private javax.swing.JComboBox<String> cmbIDCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem jmiCerrarVentana1;
-    // End of variables declaration//GEN-END:variables
+    private javax.swing.JLabel lblEstadoCiudad;
+    private javax.swing.JLabel lblNombreCiudad;
+    private javax.swing.JTextField txtApellidoCliente;
+    private javax.swing.JTextArea txtAreaDatosCliente;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtSalario;
+    // End of variables declaration
 }

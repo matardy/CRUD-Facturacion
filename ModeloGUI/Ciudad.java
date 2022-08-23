@@ -23,7 +23,6 @@ public class Ciudad extends javax.swing.JFrame {
         initComponents();
         // Set and declare all combo boxes
         ArrayList<String> IDCiudadArray = new ArrayList<>();
-        IDCiudadArray.add(" ");
         IDCiudadArray = methods.getIDCiudad();
         cmbIDCiudad.setModel(new javax.swing.DefaultComboBoxModel(IDCiudadArray.toArray(new String[0])));
 
