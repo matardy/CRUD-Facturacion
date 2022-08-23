@@ -2,6 +2,7 @@ package ModeloGUI;
 
 import EncapsulationObjects.CiudadEncapsulation;
 import EncapsulationObjects.ClienteEncapsulation;
+import EncapsulationObjects.ProductoEncapsulation;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -186,6 +187,8 @@ public class DBMethods {
 
     // --------------        FIN CIUDAD     -----------
 
+
+
     // --------------        PRODUCTO       -----------
     public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd){
         String auxCod = "";
@@ -217,27 +220,106 @@ public class DBMethods {
     }
 
     public void deleteProducto(int id){
-        //TODO: Completar el metodo deleteProducto, la logica es la misma que deleteCiudad
+        try{
+            prepStmt = conn.prepareStatement("DELETE FROM PRODUCTO WHERE CODPRODUCTO = ?");
+            prepStmt.setString(1,String.valueOf(id));
+            prepStmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd ){
-        //TODO: Completar el metodo
+        try{
+            prepStmt = conn.prepareStatement("UPDATE PRODUCTO SET NOMPROD = ?, DESCPPRODUCTO = ?, UNIDADPRODUCTO = ?" +
+                    ", PRECIOPRODUCTO = ?, TIPOPROD = ? WHERE CODPRODUCTO = ? ");
+            prepStmt.setString(1, nomProd);
+            prepStmt.setString(2, descProd);
+            prepStmt.setString(3, unidadProd);
+            prepStmt.setString(4, precioProd);
+            prepStmt.setString(5, "A");
+            prepStmt.setString(6, String.valueOf(id));
+            prepStmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
-//    public ArrayList<ModeloGUI.Producto> searchRowProducto(int id){
-//        //TODO: Completar el metodo, aqui es necesario crear la clase ModeloGUI.Producto y usar la logica de los metodos anteriores
-//        return
-//    }
+    public ArrayList<ProductoEncapsulation> searchRowProducto(int id){
+        ArrayList<ProductoEncapsulation> selectProducto = new ArrayList<ProductoEncapsulation>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM PRODUCTO WHERE CODPRODUCTO = ?");
+            prepStmt.setString(1, String.valueOf(id));
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String codProd = rs.getString("CODPRODUCTO");
+                String nomprod = rs.getString("NOMPROD");
+                String descProd = rs.getString("DESCPRODUCTO");
+                String uniProd = rs.getString("UNIDADPRODUCTO");
+                String precioProd = rs.getString("PRECIOPRODUCTO");
+                String tipoProd = rs.getString("TIPOPROD");
+                ProductoEncapsulation producto;
+                producto = new ProductoEncapsulation(codProd,nomprod,descProd,uniProd,precioProd,tipoProd);
+                selectProducto.add(producto);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return selectProducto;
+    }
+
+    public ArrayList<ProductoEncapsulation> productoView(){
+        ArrayList<ProductoEncapsulation> selectProducto = new ArrayList<ProductoEncapsulation>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM PRODUCTO");
+            //prepStmt.setString(1, String.valueOf(id));
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String codProd = rs.getString("CODPRODUCTO");
+                String nomprod = rs.getString("NOMPROD");
+                String descProd = rs.getString("DESCPRODUCTO");
+                String uniProd = rs.getString("UNIDADPRODUCTO");
+                String precioProd = rs.getString("PRECIOPRODUCTO");
+                String tipoProd = rs.getString("TIPOPROD");
+                ProductoEncapsulation producto;
+                producto = new ProductoEncapsulation(codProd,nomprod,descProd,uniProd,precioProd,tipoProd);
+                selectProducto.add(producto);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return selectProducto;
+    }
 
     public ArrayList<String> getProducto(){
         ArrayList<String> nombresProd = new ArrayList<>();
-        // TODO: Completar
+        try{
+            prepStmt = conn.prepareStatement("SELECT NOMPROD FROM PRODUCTO");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                nombresProd.add(rs.getString("NOMPROD"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
         return nombresProd;
     }
 
     public ArrayList<String> getIDProducto(){
         ArrayList<String> IDsProd = new ArrayList<>();
-        //TODO: Completar
+        try{
+            prepStmt = conn.prepareStatement("SELECT CODPRODUCTO FROM PRODUCTO");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                IDsProd.add(rs.getString("CODPRODUCTO"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
         return IDsProd;
     }
     // ---------  FIN PRODUCTO --------
@@ -371,6 +453,46 @@ public class DBMethods {
         return IDClientes;
     }
 
+    //-------- FIN CLIENTE -------------
+
+    //------- EL KILOMBO DE FACTURA Y DETALLE-FACTURA --------
+
+    /***
+     * -- FACTURA(NUMFACTURA, CODCLIENTE, FECHAEMISION, FORMAPAGO, TOTALFACTURA, DESCUENTO, IVA, SUBTOTAL, TOTAL)
+     * -- DETALLE_POR_PRODUCTO(NUMDETALLE, NUMFACTURA, CODPRODUCTO, CANTIDADUNIDADES, PRECIOVENTA, CATEGORIAPRODUCTO)
+     */
+
+    public void setFactura(String codCliente, String fechaEmision, String formaPago, String totalFactura, String descuento, String iva){
+        String auxCod = "";
+        try{
+            stmt = conn.createStatement();
+            String query = "SELECT TOP 1 * FROM FACTURA ORDER BY NUMFACTURA DESC";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                auxCod = rs.getString("NUMFACTURA");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String codFactura = String.valueOf(Integer.parseInt(auxCod) + 1);
+
+        try{
+            prepStmt = conn.prepareStatement("INSERT INTO FACTURA (NUMFACTURA, CODCLIENTE, FECHAEMISION, FORMAPAGO, TOTALFACTURA, DESCUENTO, IVA, SUBTOTAL, TOTAL) VALUES (?,?,?,?,?,?,?,?,?)" );
+            prepStmt.setString(1,codFactura);
+            prepStmt.setString(2,codCliente);
+            prepStmt.setString(3,fechaEmision);
+            prepStmt.setString(4, formaPago);
+            prepStmt.setString(5,totalFactura);
+            prepStmt.setString(6, descuento);
+            prepStmt.setString(7, iva);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
+
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
         ArrayList<CiudadEncapsulation> foo;
@@ -381,5 +503,3 @@ public class DBMethods {
 
     }
 }
-// GUI.form
-// GUI.java
