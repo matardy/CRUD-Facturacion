@@ -28,7 +28,6 @@ public class Cliente extends javax.swing.JFrame {
         cmbIDCliente.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnUpdate.setEnabled(false);
-        jPanel1.setEnabled(false);
         cmbCiudad.setEnabled(false);
 
 
@@ -338,14 +337,12 @@ public class Cliente extends javax.swing.JFrame {
             cmbIDCliente.setEnabled(true);
             btnEliminar.setEnabled(true);
             btnUpdate.setEnabled(true);
-            jPanel1.setEnabled(true);
             cmbCiudad.setEnabled(true);
         }else{
             cmbIDCliente.setEnabled(false);
             btnEliminar.setEnabled(false);
             btnUpdate.setEnabled(false);
             cmbCiudad.setEnabled(false);
-            jPanel1.setEnabled(false);
         }
     }
 
@@ -356,7 +353,15 @@ public class Cliente extends javax.swing.JFrame {
         IDClienteArray = methods.getIDCliente();
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
 
-
+        // Para que la vista se modifique
+        txtAreaDatosCliente.setText("");
+        ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
+        clienteView = methods.clienteView();
+        String viewOfCliente = "";
+        for(ClienteEncapsulation i: clienteView){
+            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
+            txtAreaDatosCliente.append(viewOfCliente);
+        }
     }
 
     private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,6 +380,16 @@ public class Cliente extends javax.swing.JFrame {
         ArrayList<String> IDClienteArray = new ArrayList<>();
         IDClienteArray = methods.getIDCliente();
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
+
+        // Para que la vista se modifique
+        txtAreaDatosCliente.setText("");
+        ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
+        clienteView = methods.clienteView();
+        String viewOfCliente = "";
+        for(ClienteEncapsulation i: clienteView){
+            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
+            txtAreaDatosCliente.append(viewOfCliente);
+        }
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,6 +398,16 @@ public class Cliente extends javax.swing.JFrame {
         ArrayList<String> IDClienteArray = new ArrayList<>();
         IDClienteArray = methods.getIDCliente();
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
+
+        // Para que la vista se modifique
+        txtAreaDatosCliente.setText("");
+        ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
+        clienteView = methods.clienteView();
+        String viewOfCliente = "";
+        for(ClienteEncapsulation i: clienteView){
+            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
+            txtAreaDatosCliente.append(viewOfCliente);
+        }
     }
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {
