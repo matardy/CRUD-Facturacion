@@ -350,7 +350,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {
-        txtNombreCliente.setText("Probando");
+        methods.setCliente((String) cmbCiudad.getSelectedItem(), txtNombreCliente.getText(), txtApellidoCliente.getText(), txtCorreo.getText(), txtSalario.getText());
     }
 
     private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,11 +364,11 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        methods.updateCliente(Integer.parseInt((String)cmbIDCliente.getSelectedItem()), (String) cmbCiudad.getSelectedItem(), txtNombreCliente.getText(), txtApellidoCliente.getText(), txtCorreo.getText(), txtSalario.getText());
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+       // methods.deleteCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
     }
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {
