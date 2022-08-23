@@ -1,4 +1,7 @@
-import EncapsulationObjects.Ciudad;
+package ModeloGUI;
+
+import EncapsulationObjects.CiudadEncapsulation;
+import EncapsulationObjects.ClienteEncapsulation;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,6 +15,7 @@ public class DBMethods {
     DBConnection db = new DBConnection();
     Connection conn = db.getConnection();
 
+    // ------- CIUDAD -------------------------------------------
     /***
      * Inserta datos dentro de la tabla ciudad
      * @param nombreCiudad Nombre de la ciudad
@@ -51,14 +55,6 @@ public class DBMethods {
      * @param id
      */
     public void deleteCiudad(int id){
-        boolean flag = true;
-        if(flag == true){
-            System.out.println("Error");
-        }else{
-            System.out.println("No error");
-        }
-
-
         try{
             prepStmt = conn.prepareStatement("DELETE FROM CIUDAD WHERE CODCIUDAD = ?");
             prepStmt.setString(1,String.valueOf(id));
@@ -94,13 +90,13 @@ public class DBMethods {
     }
 
     /***
-     * Busca una fila de la tabla ciudad y lo guarda en un ArrayList de objetos EncapsulationObjects.Ciudad
+     * Busca una fila de la tabla ciudad y lo guarda en un ArrayList de objetos EncapsulationObjects.CiudadEncapsulation
      * @param id
-     * @return
+     * @return ArrayList con objetos ciudad
      */
-    public ArrayList<Ciudad> searchRowCiudad(int id){
-        ArrayList<Ciudad> selectCiudad = new ArrayList<Ciudad>();
-        Ciudad ciudad;
+    public ArrayList<CiudadEncapsulation> searchRowCiudad(int id){
+        ArrayList<CiudadEncapsulation> selectCiudad = new ArrayList<CiudadEncapsulation>();
+        CiudadEncapsulation ciudad;
         try{
             prepStmt = conn.prepareStatement("SELECT * FROM CIUDAD WHERE CODCIUDAD = ?");
             prepStmt.setString(1, String.valueOf(id));
@@ -111,7 +107,7 @@ public class DBMethods {
                 String nombreCiudad = rs.getString("NOMBRECIUDAD");
                 String estado = rs.getString("ESTADO");
                 String numeroHabitantes = rs.getString("numeroHabitantes");
-                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
+                ciudad = new CiudadEncapsulation(codCiudad, nombreCiudad, estado,numeroHabitantes);
                 selectCiudad.add(ciudad);
 
             }
@@ -122,12 +118,16 @@ public class DBMethods {
         return selectCiudad;
     }
 
-    public ArrayList<Ciudad> searchViewCiudadByHabitantesHigher(int numHabitantes){
-        ArrayList<Ciudad> selectCiudad = new ArrayList<Ciudad>();
-        Ciudad ciudad;
+    /***
+     * Genera un Select * From Ciudad
+     * @return Array list <Ciudad> con Select * From ciudad
+     */
+    public ArrayList<CiudadEncapsulation> ciudadView(){
+        ArrayList<CiudadEncapsulation> selectCiudad = new ArrayList<CiudadEncapsulation>();
+        CiudadEncapsulation ciudad;
         try{
-            prepStmt = conn.prepareStatement("SELECT * FROM CIUDAD WHERE NUMEROHABITANTES > ?");
-            prepStmt.setString(1, String.valueOf(numHabitantes));
+            prepStmt = conn.prepareStatement("SELECT * FROM CIUDAD");
+            //prepStmt.setString(1, String.valueOf(numHabitantes));
             rs = prepStmt.executeQuery();
 
             while(rs.next()){
@@ -135,7 +135,7 @@ public class DBMethods {
                 String nombreCiudad = rs.getString("NOMBRECIUDAD");
                 String estado = rs.getString("ESTADO");
                 String numeroHabitantes = rs.getString("numeroHabitantes");
-                ciudad = new Ciudad(codCiudad, nombreCiudad, estado,numeroHabitantes);
+                ciudad = new CiudadEncapsulation(codCiudad, nombreCiudad, estado,numeroHabitantes);
                 selectCiudad.add(ciudad);
 
             }
@@ -148,7 +148,7 @@ public class DBMethods {
 
     /***
      * Obtiene todos los nombres de ciudades
-     * @return
+     * @return Array List con los nombres de ciudades
      */
     public ArrayList<String> getCiudad(){
         ArrayList<String> nombreCiudades = new ArrayList<>();
@@ -168,7 +168,7 @@ public class DBMethods {
 
     /***
      * Obtiene los ID de las ciudades
-     * @return
+     * @return ArrayList con los id de ciudades
      */
     public ArrayList<String> getIDCiudad(){
         ArrayList<String> nombreCiudades = new ArrayList<>();
@@ -184,7 +184,9 @@ public class DBMethods {
         return nombreCiudades;
     }
 
-    // PRODUCTO----
+    // --------------        FIN CIUDAD     -----------
+
+    // --------------        PRODUCTO       -----------
     public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd){
         String auxCod = "";
         try{
@@ -238,11 +240,144 @@ public class DBMethods {
         //TODO: Completar
         return IDsProd;
     }
+    // ---------  FIN PRODUCTO --------
 
+    // --------- CLIENTE --------------
+    public void setCliente(String codCiudad, String nombreCliente, String apellidoCliente, String correoCliente, String salario){
+        String auxCod = "";
+        try{
+            stmt = conn.createStatement();
+            String query = "SELECT TOP 1 * FROM CLIENTE ORDER BY CODCLIENTE DESC";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                auxCod = rs.getString("CODCLIENTE");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        String codCliente = String.valueOf(Integer.parseInt(auxCod) + 1);
+
+        try{
+            prepStmt = conn.prepareStatement("INSERT INTO CLIENTE (CODCLIENTE, CODCIUDAD, NOMBRECLIENTE, APELLIDOCLIENTE, CORREOCLIENTE, SALARIO) VALUES (?, ?, ?, ?, ?, ?)");
+            prepStmt.setString(1, codCliente);
+            prepStmt.setString(2, codCiudad);
+            prepStmt.setString(3,nombreCliente);
+            prepStmt.setString(4, apellidoCliente);
+            prepStmt.setString(5,correoCliente);
+            prepStmt.setString(6,salario);
+            prepStmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteCliente(int id){
+        try{
+            prepStmt = conn.prepareStatement("DELETE FROM CLIENTE WHERE CODCLIENTE = ?");
+            prepStmt.setString(1,String.valueOf(id));
+            prepStmt.executeUpdate();
+
+
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void updateCliente(int id,String codCiudad, String nombreCliente, String apellidoCliente, String correoCliente, String salario){
+        try{
+            prepStmt = conn.prepareStatement("UPDATE CLIENTE SET CODCIUDAD = ?, NOMBRECLIENTE = ?, APELLIDOCLIENTE = ?, CORREOCLIENTE = ?, SALARIO = ? WHERE CODCLIENTE = ? ");
+            prepStmt.setString(1, codCiudad);
+            prepStmt.setString(2, nombreCliente);
+            prepStmt.setString(3, apellidoCliente);
+            prepStmt.setString(4, correoCliente);
+            prepStmt.setString(5, salario);
+            prepStmt.setString(6,String.valueOf(id));
+            prepStmt.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<ClienteEncapsulation> searchRowCliente(int id){
+        ArrayList<ClienteEncapsulation> selectedCliente = new ArrayList<>();
+        ClienteEncapsulation cliente;
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM CLIENTE WHERE CODCLIENTE = ?");
+            prepStmt.setString(1, String.valueOf(id));
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String codCliente = rs.getString("CODCLIENTE");
+                String codCiudad = rs.getString("CODCIUDAD");
+                String nombreCliente = rs.getString("NOMBRECLIENTE");
+                String apellidoCliente = rs.getString("APELLIDOCLIENTE");
+                String correoCliente = rs.getString("CORREOCLIENTE");
+                String salario = rs.getString("SALARIO");
+
+                cliente = new ClienteEncapsulation(codCliente,codCiudad, nombreCliente, apellidoCliente, correoCliente, salario);
+                selectedCliente.add(cliente);
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    return selectedCliente;
+    }
+
+    public ArrayList<ClienteEncapsulation> clienteView(){
+        ArrayList<ClienteEncapsulation> selectedCliente = new ArrayList<>();
+        ClienteEncapsulation cliente;
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM CLIENTE");
+            //prepStmt.setString(1, String.valueOf(id));
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String codCliente = rs.getString("CODCLIENTE");
+                String codCiudad = rs.getString("CODCIUDAD");
+                String nombreCliente = rs.getString("NOMBRECLIENTE");
+                String apellidoCliente = rs.getString("APELLIDOCLIENTE");
+                String correoCliente = rs.getString("CORREOCLIENTE");
+                String salario = rs.getString("SALARIO");
+
+                cliente = new ClienteEncapsulation(codCliente,codCiudad, nombreCliente, apellidoCliente, correoCliente, salario);
+                selectedCliente.add(cliente);
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return selectedCliente;
+
+    }
+
+    public ArrayList<String> getIDCliente(){
+        ArrayList<String> IDClientes = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT CODCLIENTE FROM CLIENTE");
+            rs = prepStmt.executeQuery();
+            while(rs.next()){
+                IDClientes.add(rs.getString("CODCLIENTE"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return IDClientes;
+    }
 
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
-        methods.setProducto("Bicicleta","0","12","12.4");
+        ArrayList<CiudadEncapsulation> foo;
+        foo = methods.ciudadView();
+        for(CiudadEncapsulation i: foo){
+            System.out.println(i.estado);
+        }
 
     }
 }

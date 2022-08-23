@@ -1,5 +1,6 @@
 
-import EncapsulationObjects.Ciudad;
+import EncapsulationObjects.CiudadEncapsulation;
+import ModeloGUI.DBMethods;
 
 import java.util.ArrayList;
 
@@ -80,7 +81,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
-        ArrayList<Ciudad> data = new ArrayList<Ciudad>();
+        ArrayList<CiudadEncapsulation> data = new ArrayList<CiudadEncapsulation>();
         data = methods.searchRowCiudad(Integer.parseInt( (String) jComboBox1.getSelectedItem()));
 
         lblExample.setText(data.get(0).estado + " "  + data.get(0).nombreCiudad);

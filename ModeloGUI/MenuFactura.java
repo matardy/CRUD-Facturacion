@@ -169,7 +169,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
     private void jmiVentana5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentana5ActionPerformed
         // TODO add your handling code here:
-        ModeloGUI.Ventana5 obj = new ModeloGUI.Ventana5();
+        Ciudad obj = new Ciudad();
         obj.setVisible(true);
         obj.setLocationRelativeTo(null); //centrar la ventana
         this.dispose(); //fija una ventana

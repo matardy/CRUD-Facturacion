@@ -1,4 +1,4 @@
-/***
+package ModeloGUI; /***
  * Tutorial: https://www.codejava.net/java-se/jdbc/connect-to-microsoft-sql-server-via-jdbc
  *https://medium.com/@navdeepsinghbedi/setting-up-ms-sql-server-on-docker-and-intellij-2c0a803e41c1#:~:text=Connecting%20the%20SQL%20Server%20to,see%20the%20SQL%20Server%20image.
  */
