@@ -319,7 +319,14 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        txtAreaDatosCliente.setText("");
+        ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
+        clienteView = methods.clienteView();
+        String viewOfCliente = "";
+        for(ClienteEncapsulation i: clienteView){
+            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
+            txtAreaDatosCliente.append(viewOfCliente);
+        }
     }
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {
