@@ -28,7 +28,6 @@ public class Cliente extends javax.swing.JFrame {
         cmbIDCliente.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnUpdate.setEnabled(false);
-        cmbCiudad.setEnabled(false);
 
 
     }
@@ -337,12 +336,10 @@ public class Cliente extends javax.swing.JFrame {
             cmbIDCliente.setEnabled(true);
             btnEliminar.setEnabled(false);
             btnUpdate.setEnabled(true);
-            cmbCiudad.setEnabled(true);
         }else{
             cmbIDCliente.setEnabled(false);
             btnEliminar.setEnabled(false);
             btnUpdate.setEnabled(false);
-            cmbCiudad.setEnabled(false);
         }
     }
 
