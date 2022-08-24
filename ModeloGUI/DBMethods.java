@@ -6,6 +6,7 @@ import EncapsulationObjects.ProductoEncapsulation;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DBMethods {
     Statement stmt;
@@ -462,7 +463,7 @@ public class DBMethods {
      * -- DETALLE_POR_PRODUCTO(NUMDETALLE, NUMFACTURA, CODPRODUCTO, CANTIDADUNIDADES, PRECIOVENTA, CATEGORIAPRODUCTO)
      */
 
-    public void setFactura(String codCliente, String fechaEmision, String formaPago, String totalFactura, String descuento, String iva){
+    public String setFactura(String codCliente, String fechaEmision, String formaPago, String totalFactura, String descuento, String iva){
         String auxCod = "";
         try{
             stmt = conn.createStatement();
@@ -489,17 +490,59 @@ public class DBMethods {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return codFactura;
+    }
+
+    public void setDetalleProducto(String numFactura, String codProducto, String cantidadUnidades, String precioVenta, String categoria){
+        String auxCod = "";
+        try{
+            stmt = conn.createStatement();
+            String query = "SELECT TOP 1 * FROM DETALLE_POR_PRODUCTO ORDER BY NUMDETALLE DESC";
+            rs = stmt.executeQuery(query);
+            while(rs.next()){
+                auxCod = rs.getString("NUMDETALLE");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+         String numDetalle = String.valueOf(Integer.parseInt(auxCod) + 1);
+
+        try{
+            prepStmt = conn.prepareStatement("INSERT INTO DETALLE_POR_PRODUCTO (NUMDETALLE, NUMFACTURA, CODPRODUCTO, CANTIDADUNIDADES, PRECIOVENTA, CATEGORIAPRODUCTO) VALUES (?, ?, ?, ?, ?, ?)");
+            prepStmt.setString(1, numDetalle);
+            prepStmt.setString(2, numFactura);
+            prepStmt.setString(3, codProducto);
+            prepStmt.setString(4, cantidadUnidades);
+            prepStmt.setString(5, precioVenta);
+            prepStmt.setString(6, categoria);
+            prepStmt.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
     }
 
 
 
     public static void main(String[] args) {
         DBMethods methods = new DBMethods();
-        ArrayList<CiudadEncapsulation> foo;
-        foo = methods.ciudadView();
-        for(CiudadEncapsulation i: foo){
-            System.out.println(i.estado);
+        String cantidadProducto = "";
+        Boolean flag = true;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese un valor");
+        String foo = sc.next();
+        System.out.println(foo);
+
+
+        while(flag){
+
+
         }
+
+       // methods.setDetalleProducto(methods.setFactura(), );
+
 
     }
 }
