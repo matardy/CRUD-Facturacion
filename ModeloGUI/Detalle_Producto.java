@@ -4,6 +4,7 @@
  */
 package ModeloGUI;
 
+import EncapsulationObjects.ClienteEncapsulation;
 import EncapsulationObjects.ProductoEncapsulation;
 
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,12 @@ public class Detalle_Producto extends javax.swing.JFrame {
     Float totalFactura = 0.0f;
     Float subTotal= 0.0f;
     Float totalIVA= 0.0f;
+
+    // Para guarar la lista de productos
+    ArrayList<ProductoEncapsulation> producto = new ArrayList<ProductoEncapsulation>();
+    ArrayList<ProductoEncapsulation> productosStored = new ArrayList<ProductoEncapsulation>();
+    // Para guardar detalle de productos
+    ArrayList<String[]> detalleProducto = new ArrayList<>();
     /**
      * Creates new form Ventana2
      */
@@ -31,6 +38,12 @@ public class Detalle_Producto extends javax.swing.JFrame {
         ArrayList<String> IDProducto;
         IDProducto = methods.getIDProducto();
         cmbCodigoProducto.setModel(new javax.swing.DefaultComboBoxModel(IDProducto.toArray(new String[0])));
+
+        ArrayList<String> IDCliente;
+        IDCliente = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDCliente.toArray(new String[0])));
+
+
     }
 
     /**
@@ -248,6 +261,11 @@ public class Detalle_Producto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDetalleProducto);
 
         btnFinalizarFactura.setText("Finalizar Factura");
+        btnFinalizarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarFacturaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -381,7 +399,12 @@ public class Detalle_Producto extends javax.swing.JFrame {
     }
 
     private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ArrayList<ClienteEncapsulation> cliente = new ArrayList<>();
+        cliente = methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
+        lblNombreCliente.setText(cliente.get(0).nombreCliente);
+        lblApellidoCliente.setText(cliente.get(0).apellidoCliente);
+        lblCorreoCliente.setText(cliente.get(0).correoCliente);
+
     }
 
     private void cmbCodigoProductoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,26 +415,35 @@ public class Detalle_Producto extends javax.swing.JFrame {
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {
 
-        // Agrega productos a la lista
-        ArrayList<ProductoEncapsulation> producto = new ArrayList<ProductoEncapsulation>();
-        producto = methods.searchRowProducto(Integer.parseInt((String) cmbCodigoProducto.getSelectedItem()));
-        String total = Float.toString(Float.parseFloat(txtCantidadProducto.getText()) * Float.parseFloat(producto.get(0).precioProducto));
-        String[] row = {producto.get(0).nombreProducto, producto.get(0).precioProducto, txtCantidadProducto.getText(),total };
-        tablaProducto.addRow(row);
+            // Agrega productos a la lista
 
-        // Genera total Factura, Sub Total y Total IVA
-        totalFactura += Float.parseFloat(total);
-        subTotal += Float.parseFloat(total);
-        totalIVA += subTotal + (subTotal*(12f/100f));
-        // Los coloca en los label
-        lblTotalFactura.setText(Float.toString(totalFactura));
-        lblSubtotal.setText(Float.toString(subTotal));
-        lblTotal.setText(Float.toString(totalIVA));
+            producto = methods.searchRowProducto(Integer.parseInt((String) cmbCodigoProducto.getSelectedItem()));
+            productosStored.add(producto.get(0));
+            String total = Float.toString(Float.parseFloat(txtCantidadProducto.getText()) * Float.parseFloat(producto.get(0).precioProducto));
+            String[] row = {producto.get(0).nombreProducto, producto.get(0).precioProducto, txtCantidadProducto.getText(),total };
+            detalleProducto.add(row);
+            tablaProducto.addRow(row);
+
+
+            // Genera total Factura, Sub Total y Total IVA
+            totalFactura += Float.parseFloat(total);
+            subTotal += Float.parseFloat(total);
+            totalIVA += subTotal + (subTotal*(12f/100f));
+            // Los coloca en los label
+            lblTotalFactura.setText(Float.toString(totalFactura));
+            lblSubtotal.setText(Float.toString(subTotal));
+            lblTotal.setText(Float.toString(totalIVA));
 
     }
 
     private void btnFinalizarFacturaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+
+        String numFactura = methods.setFactura((String)cmbIDCliente.getSelectedItem(),txtFechaFactura.getText(),(String)cmbFormadePago.getSelectedItem(),Float.toString(totalFactura), Float.toString(subTotal),"0","0.12", Float.toString(totalIVA));
+        System.out.println(numFactura);
+        for(int i=0; i<productosStored.size(); i++){
+           methods.setDetalleProducto(numFactura,productosStored.get(i).codigoProducto,detalleProducto.get(i)[2], productosStored.get(i).precioProducto, productosStored.get(i).tipoProducto);
+        }
+
     }
     /**
      * @param args the command line arguments

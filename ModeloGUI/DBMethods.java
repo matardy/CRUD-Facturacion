@@ -463,7 +463,7 @@ public class DBMethods {
      * -- DETALLE_POR_PRODUCTO(NUMDETALLE, NUMFACTURA, CODPRODUCTO, CANTIDADUNIDADES, PRECIOVENTA, CATEGORIAPRODUCTO)
      */
 
-    public String setFactura(String codCliente, String fechaEmision, String formaPago, String totalFactura, String descuento, String iva){
+    public String setFactura(String codCliente, String fechaEmision, String formaPago, String totalFactura,String subtotal, String descuento, String iva,String total){
         String auxCod = "";
         try{
             stmt = conn.createStatement();
@@ -487,6 +487,9 @@ public class DBMethods {
             prepStmt.setString(5,totalFactura);
             prepStmt.setString(6, descuento);
             prepStmt.setString(7, iva);
+            prepStmt.setString(8,subtotal);
+            prepStmt.setString(9,total);
+            prepStmt.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -525,24 +528,5 @@ public class DBMethods {
 
 
 
-    public static void main(String[] args) {
-        DBMethods methods = new DBMethods();
-        String cantidadProducto = "";
-        Boolean flag = true;
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese un valor");
-        String foo = sc.next();
-        System.out.println(foo);
-
-
-        while(flag){
-
-
-        }
-
-       // methods.setDetalleProducto(methods.setFactura(), );
-
-
-    }
 }
