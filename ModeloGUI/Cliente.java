@@ -3,6 +3,7 @@ package ModeloGUI;
 import EncapsulationObjects.CiudadEncapsulation;
 import EncapsulationObjects.ClienteEncapsulation;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 /**
@@ -11,12 +12,16 @@ import java.util.ArrayList;
  */
 public class Cliente extends javax.swing.JFrame {
     DBMethods methods = new DBMethods();
+    DefaultTableModel tabla;
 
     /**
      * Creates new form Ventana1
      */
     public Cliente() {
         initComponents();
+
+        tabla = (DefaultTableModel)tblDataCliente.getModel();
+
         ArrayList<String> IDClienteArray = new ArrayList<>();
         IDClienteArray = methods.getIDCliente();
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
@@ -54,8 +59,6 @@ public class Cliente extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaDatosCliente = new javax.swing.JTextArea();
         txtSalario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -63,6 +66,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lblNombreCiudad = new javax.swing.JLabel();
         lblEstadoCiudad = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDataCliente = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -139,10 +144,6 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        txtAreaDatosCliente.setColumns(20);
-        txtAreaDatosCliente.setRows(5);
-        jScrollPane1.setViewportView(txtAreaDatosCliente);
-
         txtSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSalarioActionPerformed(evt);
@@ -194,6 +195,24 @@ public class Cliente extends javax.swing.JFrame {
                                         .addComponent(lblEstadoCiudad))
                                 .addContainerGap(50, Short.MAX_VALUE))
         );
+
+        tblDataCliente.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+
+                },
+                new String [] {
+                        "Cod Cliente", "Cod Ciudad", "Nombre ", "Apellido", "Correo", "Salario"
+                }
+        ) {
+            Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblDataCliente);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -248,31 +267,24 @@ public class Cliente extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(14, 14, 14)
                                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnVerDatos)
-                                                .addGap(447, 447, 447))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(26, Short.MAX_VALUE))))
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(35, 35, 35))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(btnVerDatos)
+                                                .addGap(275, 275, 275))))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel1))
-                                        .addComponent(btnVerDatos, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane1)
-                                                .addContainerGap())
-                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel1))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel2)
@@ -290,19 +302,24 @@ public class Cliente extends javax.swing.JFrame {
                                                         .addComponent(jLabel5)
                                                         .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(21, 21, 21)
+                                                .addComponent(btnVerDatos)
                                                 .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(btnInsertar)
-                                                        .addComponent(btnUpdate)
-                                                        .addComponent(btnEliminar))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(chkHabilitarEdicion)
-                                                .addGap(111, 111, 111))))
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnInsertar)
+                                        .addComponent(btnUpdate)
+                                        .addComponent(btnEliminar))
+                                .addGap(18, 18, 18)
+                                .addComponent(chkHabilitarEdicion)
+                                .addGap(83, 83, 83))
         );
 
         pack();
-    }
+    }// </editor-fold>
 
     private void jmiCerrarVentana1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarVentana1ActionPerformed
         // TODO add your handling code here:
@@ -317,13 +334,13 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {
-        txtAreaDatosCliente.setText("");
+        //txtAreaDatosCliente.setText("");
+        tabla.setRowCount(0);
         ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
         clienteView = methods.clienteView();
-        String viewOfCliente = "";
         for(ClienteEncapsulation i: clienteView){
-            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
-            txtAreaDatosCliente.append(viewOfCliente);
+            String[] row = {i.id, i.codCiudad, i.nombreCliente, i.apellidoCliente, i.correoCliente, i.salario};
+            tabla.addRow(row);
         }
     }
 
@@ -351,13 +368,12 @@ public class Cliente extends javax.swing.JFrame {
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
 
         // Para que la vista se modifique
-        txtAreaDatosCliente.setText("");
+        tabla.setRowCount(0);
         ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
         clienteView = methods.clienteView();
-        String viewOfCliente = "";
         for(ClienteEncapsulation i: clienteView){
-            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
-            txtAreaDatosCliente.append(viewOfCliente);
+            String[] row = {i.id, i.codCiudad, i.nombreCliente, i.apellidoCliente, i.correoCliente, i.salario};
+            tabla.addRow(row);
         }
     }
 
@@ -379,13 +395,12 @@ public class Cliente extends javax.swing.JFrame {
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
 
         // Para que la vista se modifique
-        txtAreaDatosCliente.setText("");
+        tabla.setRowCount(0);
         ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
         clienteView = methods.clienteView();
-        String viewOfCliente = "";
         for(ClienteEncapsulation i: clienteView){
-            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
-            txtAreaDatosCliente.append(viewOfCliente);
+            String[] row = {i.id, i.codCiudad, i.nombreCliente, i.apellidoCliente, i.correoCliente, i.salario};
+            tabla.addRow(row);
         }
     }
 
@@ -397,13 +412,12 @@ public class Cliente extends javax.swing.JFrame {
         cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDClienteArray.toArray(new String[0])));
 
         // Para que la vista se modifique
-        txtAreaDatosCliente.setText("");
+        tabla.setRowCount(0);
         ArrayList<ClienteEncapsulation> clienteView = new ArrayList<>();
         clienteView = methods.clienteView();
-        String viewOfCliente = "";
         for(ClienteEncapsulation i: clienteView){
-            viewOfCliente = "[ " + i.id + " " + i.codCiudad + " " + i.nombreCliente + " " + i.apellidoCliente + " " + i.correoCliente + " " + i.salario + " ]" + "\n";
-            txtAreaDatosCliente.append(viewOfCliente);
+            String[] row = {i.id, i.codCiudad, i.nombreCliente, i.apellidoCliente, i.correoCliente, i.salario};
+            tabla.addRow(row);
         }
     }
 
@@ -476,12 +490,12 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuItem jmiCerrarVentana1;
     private javax.swing.JLabel lblEstadoCiudad;
     private javax.swing.JLabel lblNombreCiudad;
+    private javax.swing.JTable tblDataCliente;
     private javax.swing.JTextField txtApellidoCliente;
-    private javax.swing.JTextArea txtAreaDatosCliente;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtSalario;

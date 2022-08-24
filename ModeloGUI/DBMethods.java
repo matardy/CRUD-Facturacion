@@ -256,7 +256,7 @@ public class DBMethods {
             while(rs.next()){
                 String codProd = rs.getString("CODPRODUCTO");
                 String nomprod = rs.getString("NOMPROD");
-                String descProd = rs.getString("DESCPRODUCTO");
+                String descProd = rs.getString("DESCPPRODUCTO");
                 String uniProd = rs.getString("UNIDADPRODUCTO");
                 String precioProd = rs.getString("PRECIOPRODUCTO");
                 String tipoProd = rs.getString("TIPOPROD");
