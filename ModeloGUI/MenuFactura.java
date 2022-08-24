@@ -61,7 +61,7 @@ public class MenuFactura extends javax.swing.JFrame {
 
         jMenu1.setText("Opcion de factura");
 
-        jmiVentana1.setText("ModeloGUI.Cliente");
+        jmiVentana1.setText("Clientes");
         jmiVentana1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana1ActionPerformed(evt);
@@ -69,7 +69,7 @@ public class MenuFactura extends javax.swing.JFrame {
         });
         jMenu1.add(jmiVentana1);
 
-        jmiVentana2.setText("Detalle ModeloGUI.Producto");
+        jmiVentana2.setText("Generar Factura");
         jmiVentana2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana2ActionPerformed(evt);
@@ -77,7 +77,7 @@ public class MenuFactura extends javax.swing.JFrame {
         });
         jMenu1.add(jmiVentana2);
 
-        jmiVentana3.setText("ModeloGUI.Producto");
+        jmiVentana3.setText("Productos");
         jmiVentana3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana3ActionPerformed(evt);
