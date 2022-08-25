@@ -6,6 +6,7 @@ package ModeloGUI;
 
 import EncapsulationObjects.CiudadEncapsulation;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  * @author DETPC
  */
 public class Ciudad extends javax.swing.JFrame {
+
     DBMethods methods = new DBMethods();
 
     /**
@@ -21,6 +23,7 @@ public class Ciudad extends javax.swing.JFrame {
      */
     public Ciudad() {
         initComponents();
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         // Set and declare all combo boxes
         ArrayList<String> IDCiudadArray = new ArrayList<>();
         IDCiudadArray = methods.getIDCiudad();
@@ -143,12 +146,12 @@ public class Ciudad extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentana5.setText("Cerrar ventana 5");
+        jmiCerrarVentana5.setText("Cerrar Ciudad");
         jmiCerrarVentana5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCerrarVentana5ActionPerformed(evt);

@@ -3,6 +3,7 @@ package ModeloGUI;
 import EncapsulationObjects.CiudadEncapsulation;
 import EncapsulationObjects.ClienteEncapsulation;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ public class Cliente extends javax.swing.JFrame {
      */
     public Cliente() {
         initComponents();
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         tabla = (DefaultTableModel)tblDataCliente.getModel();
 
