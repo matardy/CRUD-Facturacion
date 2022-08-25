@@ -4,6 +4,8 @@
  */
 package ModeloGUI;
 
+import EncapsulationObjects.ClienteEncapsulation;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
@@ -29,6 +31,10 @@ public class Factura extends javax.swing.JFrame {
             tablaFactura.addRow(i);
         }
 
+        ArrayList<String> IDCliente;
+        IDCliente = methods.getIDCliente();
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel(IDCliente.toArray(new String[0])));
+
 
     }
 
@@ -45,6 +51,19 @@ public class Factura extends javax.swing.JFrame {
         tblDetalles = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblFactura = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtFechaInicial = new javax.swing.JTextField();
+        txtFechaFinal = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        cmbIDCliente = new javax.swing.JComboBox<>();
+        lblNombreCliente = new javax.swing.JLabel();
+        lblApellidoCliente = new javax.swing.JLabel();
+        lblCorreoCliente = new javax.swing.JLabel();
+        chFiltroCliente = new javax.swing.JCheckBox();
+        chkFiltroFecha = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -98,6 +117,86 @@ public class Factura extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblFactura);
 
+        jLabel1.setText("Fecha Inicial");
+
+        jLabel2.setText("Fecha Final");
+
+        jLabel3.setText("Detalle Factura");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Cliente"));
+
+        jLabel4.setText("Codigo Cliente");
+
+        cmbIDCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbIDCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIDClienteActionPerformed(evt);
+            }
+        });
+
+        lblNombreCliente.setText("nombreCliente");
+
+        lblApellidoCliente.setText("apellidoCliente");
+
+        lblCorreoCliente.setText("correoCliente");
+
+        chFiltroCliente.setText("Filtrar por Cliente");
+        chFiltroCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chFiltroClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(lblNombreCliente)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblCorreoCliente)
+                                                        .addComponent(lblApellidoCliente))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                                .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(38, 38, 38))))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(chFiltroCliente)
+                                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(cmbIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addComponent(lblNombreCliente)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblApellidoCliente)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCorreoCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addComponent(chFiltroCliente)
+                                .addGap(18, 18, 18))
+        );
+
+        chkFiltroFecha.setText("Filtrar por Fecha");
+        chkFiltroFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkFiltroFechaActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -120,22 +219,58 @@ public class Factura extends javax.swing.JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(123, 123, 123)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(121, Short.MAX_VALUE))
+                                                .addGap(42, 42, 42)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(jLabel1)
+                                                                        .addComponent(jLabel2))
+                                                                .addGap(40, 40, 40)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(txtFechaInicial)
+                                                                        .addComponent(txtFechaFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
+                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(108, 108, 108)
+                                                .addComponent(chkFiltroFecha)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(24, 24, 24))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addGap(438, 438, 438))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(97, 97, 97))))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(86, Short.MAX_VALUE))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(30, 30, 30)
+                                                .addComponent(jLabel3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel1)
+                                                        .addComponent(txtFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(26, 26, 26)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(26, 26, 26)
+                                                .addComponent(chkFiltroFecha)
+                                                .addGap(46, 46, 46)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,6 +301,50 @@ public class Factura extends javax.swing.JFrame {
         }
 
     }
+    private void cmbIDClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<ClienteEncapsulation> cliente = new ArrayList<>();
+        cliente = methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem()));
+        lblNombreCliente.setText(cliente.get(0).nombreCliente);
+        lblApellidoCliente.setText(cliente.get(0).apellidoCliente);
+        lblCorreoCliente.setText(cliente.get(0).correoCliente);
+    }
+
+    private void chkFiltroFechaActionPerformed(java.awt.event.ActionEvent evt) {
+        tablaFactura.setRowCount(0);
+        ArrayList<String[]> viewFactura = new ArrayList<>();
+        viewFactura = methods.facturaFilterFechaView(txtFechaInicial.getText(), txtFechaFinal.getText());
+       if(chkFiltroFecha.isSelected()){
+           for(String[] i : viewFactura){
+               tablaFactura.addRow(i);
+           }
+       }else{
+           viewFactura = methods.facturaView();
+           for(String[] i : viewFactura){
+               tablaFactura.addRow(i);
+           }
+
+       }
+
+
+    }
+
+    private void chFiltroClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        tablaFactura.setRowCount(0);
+        ArrayList<String[]> viewFactura = new ArrayList<>();
+        viewFactura = methods.facturaFilterClienteView(methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem())).get(0).id);
+        if(chFiltroCliente.isSelected()){
+            for(String[] i : viewFactura){
+                tablaFactura.addRow(i);
+            }
+        }else{
+            viewFactura = methods.facturaView();
+            for(String[] i : viewFactura){
+                tablaFactura.addRow(i);
+            }
+
+        }
+    }
+
 
     /**
      * @param args the command line arguments
@@ -204,13 +383,26 @@ public class Factura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
+    private javax.swing.JCheckBox chFiltroCliente;
+    private javax.swing.JCheckBox chkFiltroFecha;
+    private javax.swing.JComboBox<String> cmbIDCliente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuItem jmiCerrarVentana4;
+    private javax.swing.JLabel lblApellidoCliente;
+    private javax.swing.JLabel lblCorreoCliente;
+    private javax.swing.JLabel lblNombreCliente;
     private javax.swing.JTable tblDetalles;
     private javax.swing.JTable tblFactura;
+    private javax.swing.JTextField txtFechaFinal;
+    private javax.swing.JTextField txtFechaInicial;
     // End of variables declaration
 }

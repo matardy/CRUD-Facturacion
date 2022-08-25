@@ -552,6 +552,65 @@ public class DBMethods {
         return viewFactura;
     }
 
+    public ArrayList<String[]> facturaFilterFechaView(String fechaInicial, String fechaFinal){
+        ArrayList<String[]> viewFactura = new ArrayList<>();
+        String tempFI = fechaInicial;
+        String tempFF = fechaFinal;
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM FACTURA WHERE FECHAEMISION BETWEEN ? AND ? ");
+            prepStmt.setString(1, tempFI);
+            prepStmt.setString(2, tempFF);
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String numFactura = rs.getString("NUMFACTURA");
+                String codCliente = rs.getString("CODCLIENTE");
+                String fechaEmision = rs.getString("FECHAEMISION");
+                String formaPago = rs.getString("FORMAPAGO");
+                String totalFactura = rs.getString("TOTALFACTURA");
+                String descuento = rs.getString("DESCUENTO");
+                String iva = rs.getString("IVA");
+                String subtotal = rs.getString("SUBTOTAL");
+                String total = rs.getString("TOTAL");
+                String[] temp = {numFactura, codCliente, fechaEmision, formaPago, totalFactura, descuento, iva, subtotal, total};
+                viewFactura.add(temp);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return viewFactura;
+    }
+
+    public ArrayList<String[]> facturaFilterClienteView(String codigoCliente){
+        ArrayList<String[]> viewFactura = new ArrayList<>();
+
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM FACTURA WHERE CODCLIENTE = ?");
+            prepStmt.setString(1, codigoCliente);
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String numFactura = rs.getString("NUMFACTURA");
+                String codCliente = rs.getString("CODCLIENTE");
+                String fechaEmision = rs.getString("FECHAEMISION");
+                String formaPago = rs.getString("FORMAPAGO");
+                String totalFactura = rs.getString("TOTALFACTURA");
+                String descuento = rs.getString("DESCUENTO");
+                String iva = rs.getString("IVA");
+                String subtotal = rs.getString("SUBTOTAL");
+                String total = rs.getString("TOTAL");
+                String[] temp = {numFactura, codCliente, fechaEmision, formaPago, totalFactura, descuento, iva, subtotal, total};
+                viewFactura.add(temp);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return viewFactura;
+    }
+
+
     public ArrayList<String[]> detalleFacturaView(String numFactura){
         ArrayList<String[]> view = new ArrayList<>();
         try{
