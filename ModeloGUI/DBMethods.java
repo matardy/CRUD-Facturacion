@@ -526,7 +526,55 @@ public class DBMethods {
 
     }
 
+    public ArrayList<String[]> facturaView(){
+        ArrayList<String[]> viewFactura = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM FACTURA");
+            rs = prepStmt.executeQuery();
 
+            while(rs.next()){
+                String numFactura = rs.getString("NUMFACTURA");
+                String codCliente = rs.getString("CODCLIENTE");
+                String fechaEmision = rs.getString("FECHAEMISION");
+                String formaPago = rs.getString("FORMAPAGO");
+                String totalFactura = rs.getString("TOTALFACTURA");
+                String descuento = rs.getString("DESCUENTO");
+                String iva = rs.getString("IVA");
+                String subtotal = rs.getString("SUBTOTAL");
+                String total = rs.getString("TOTAL");
+                String[] temp = {numFactura, codCliente, fechaEmision, formaPago, totalFactura, descuento, iva, subtotal, total};
+                viewFactura.add(temp);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return viewFactura;
+    }
+
+    public ArrayList<String[]> detalleFacturaView(String numFactura){
+        ArrayList<String[]> view = new ArrayList<>();
+        try{
+            prepStmt = conn.prepareStatement("SELECT * FROM DETALLE_POR_PRODUCTO WHERE NUMFACTURA = ?");
+            prepStmt.setString(1,numFactura);
+            rs = prepStmt.executeQuery();
+
+            while(rs.next()){
+                String numDetalle = rs.getString("NUMDETALLE");
+                String nFactura = rs.getString("NUMFACTURA");
+                String codProducto = rs.getString("CODPRODUCTO");
+                String cantidadUnidades = rs.getString("CANTIDADUNIDADES");
+                String precioVenta = rs.getString("PRECIOVENTA");
+                String categoriaProd = rs.getString("CATEGORIAPRODUCTO");
+                String[] temp = {numDetalle, nFactura, codProducto, cantidadUnidades, precioVenta,categoriaProd};
+                view.add(temp);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return view;
+    }
 
 
 }

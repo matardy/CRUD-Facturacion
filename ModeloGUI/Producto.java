@@ -3,6 +3,7 @@ package ModeloGUI;
 import EncapsulationObjects.ClienteEncapsulation;
 import EncapsulationObjects.ProductoEncapsulation;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Producto extends javax.swing.JFrame {
      */
     public Producto() {
         initComponents();
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         tablaProducto = (DefaultTableModel) tblDatosProducto.getModel();
 
@@ -115,6 +117,11 @@ public class Producto extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        tblDatosProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDatosProductoMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblDatosProducto);
@@ -232,12 +239,12 @@ public class Producto extends javax.swing.JFrame {
                                 .addGap(0, 39, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Menu");
+        jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentan3.setText("Cerrar Productos");
+        jmiCerrarVentan3.setText("Cerrar ventana 3");
         jmiCerrarVentan3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCerrarVentan3ActionPerformed(evt);
@@ -318,6 +325,14 @@ public class Producto extends javax.swing.JFrame {
             String[] row = {i.codigoProducto, i.nombreProducto, i.descuentoProducto, i.unidadProducto, i.precioProducto, i.tipoProducto };
             tablaProducto.addRow(row);
         }
+    }
+
+    private void tblDatosProductoMouseClicked(java.awt.event.MouseEvent evt) {
+        JTable source = (JTable) evt.getSource();
+        int row = source.rowAtPoint(evt.getPoint());
+        int column = source.columnAtPoint(evt.getPoint());
+        String s = source.getModel().getValueAt(row ,column) + "" ;
+        System.out.println(s);
     }
 
     public void displayUpdatedData(){
