@@ -93,7 +93,7 @@ public class MenuFactura extends javax.swing.JFrame {
         });
         jMenu1.add(jmiVentana4);
 
-        jmiVentana5.setText("Ventana 5");
+        jmiVentana5.setText("Ciudades");
         jmiVentana5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiVentana5ActionPerformed(evt);
