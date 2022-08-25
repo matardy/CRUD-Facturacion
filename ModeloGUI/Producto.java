@@ -1,18 +1,24 @@
 package ModeloGUI;
 
+import EncapsulationObjects.ClienteEncapsulation;
 import EncapsulationObjects.ProductoEncapsulation;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class Producto extends javax.swing.JFrame {
     DBMethods methods = new DBMethods();
+    DefaultTableModel tablaProducto = new DefaultTableModel();
+    ArrayList<String> IDProducto = new ArrayList<>();
+
     /**
      * Creates new form Ventana3
      */
     public Producto() {
         initComponents();
 
-        ArrayList<String> IDProducto = new ArrayList<>();
+        tablaProducto = (DefaultTableModel) tblDatosProducto.getModel();
+
         IDProducto = methods.getIDProducto();
         cmbIDProducto.setModel(new javax.swing.DefaultComboBoxModel(IDProducto.toArray(new String[0])));
 
@@ -226,12 +232,12 @@ public class Producto extends javax.swing.JFrame {
                                 .addGap(0, 39, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentan3.setText("Cerrar ventana 3");
+        jmiCerrarVentan3.setText("Cerrar Productos");
         jmiCerrarVentan3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCerrarVentan3ActionPerformed(evt);
@@ -305,7 +311,23 @@ public class Producto extends javax.swing.JFrame {
     }
 
     private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tablaProducto.setRowCount(0);
+        ArrayList<ProductoEncapsulation> productoView = new ArrayList<>();
+        productoView = methods.productoView();
+        for(ProductoEncapsulation i: productoView){
+            String[] row = {i.codigoProducto, i.nombreProducto, i.descuentoProducto, i.unidadProducto, i.precioProducto, i.tipoProducto };
+            tablaProducto.addRow(row);
+        }
+    }
+
+    public void displayUpdatedData(){
+        tablaProducto.setRowCount(0);
+        ArrayList<ProductoEncapsulation> productoView = new ArrayList<>();
+        productoView = methods.productoView();
+        for(ProductoEncapsulation i: productoView){
+            String[] row = {i.codigoProducto, i.nombreProducto, i.descuentoProducto, i.unidadProducto, i.precioProducto, i.tipoProducto };
+            tablaProducto.addRow(row);
+        }
     }
 
     private void txtUnidadesActionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,21 +349,25 @@ public class Producto extends javax.swing.JFrame {
     }
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {
-        txtNombreProducto.setText("Probando");
+        methods.setProducto(txtNombreProducto.getText(), txtDescuento.getText(), txtUnidades.getText(), txtPrecio.getText());
+        IDProducto = methods.getIDProducto();
+        cmbIDProducto.setModel(new javax.swing.DefaultComboBoxModel(IDProducto.toArray(new String[0])));
+        displayUpdatedData();
     }
 
     private void cmbIDProductoActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<ProductoEncapsulation> producto = new ArrayList<>();
         producto = methods.searchRowProducto(Integer.parseInt((String)cmbIDProducto.getSelectedItem()));
-        txtNombreProducto.setText(producto.get(0).nombreProducto);
-        txtDescuento.setText(producto.get(0).descuentoProducto);
-        txtUnidades.setText(producto.get(0).unidadProducto);
-        txtPrecio.setText(producto.get(0).precioProducto);
-        cmbTipoProd.setSelectedItem(producto.get(0).tipoProducto);
+        txtNombreProducto.setText(producto.get(0).nombreProducto.trim());
+        txtDescuento.setText(producto.get(0).descuentoProducto.trim());
+        txtUnidades.setText(producto.get(0).unidadProducto.trim());
+        txtPrecio.setText(producto.get(0).precioProducto.trim());
+        cmbTipoProd.setSelectedItem(producto.get(0).tipoProducto.trim());
     }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        methods.updateProducto(Integer.parseInt((String) cmbIDProducto.getSelectedItem()),txtNombreProducto.getText(), txtDescuento.getText(), txtUnidades.getText(), txtPrecio.getText());
+        displayUpdatedData();
     }
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
