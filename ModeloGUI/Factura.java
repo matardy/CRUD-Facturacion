@@ -329,6 +329,7 @@ public class Factura extends javax.swing.JFrame {
     }
 
     private void chFiltroClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        //checking commits
         tablaFactura.setRowCount(0);
         ArrayList<String[]> viewFactura = new ArrayList<>();
         viewFactura = methods.facturaFilterClienteView(methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem())).get(0).id);
