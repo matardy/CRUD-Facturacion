@@ -214,12 +214,12 @@ public class Cliente extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblDataCliente);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentana1.setText("Cerrar ventana 1");
+        jmiCerrarVentana1.setText("Cerrar Clientes");
         jmiCerrarVentana1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCerrarVentana1ActionPerformed(evt);
