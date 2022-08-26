@@ -8,7 +8,7 @@ import EncapsulationObjects.ClienteEncapsulation;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
+
 import java.util.ArrayList;
 
 public class Factura extends javax.swing.JFrame {
@@ -313,6 +313,7 @@ public class Factura extends javax.swing.JFrame {
         tablaFactura.setRowCount(0);
         ArrayList<String[]> viewFactura = new ArrayList<>();
         viewFactura = methods.facturaFilterFechaView(txtFechaInicial.getText(), txtFechaFinal.getText());
+
        if(chkFiltroFecha.isSelected()){
            for(String[] i : viewFactura){
                tablaFactura.addRow(i);
@@ -325,10 +326,26 @@ public class Factura extends javax.swing.JFrame {
 
        }
 
+        if(chkFiltroFecha.isSelected()){
+            for(String[] i : viewFactura){
+                tablaFactura.addRow(i);
+            }
+        }else{
+            viewFactura = methods.facturaView();
+            for(String[] i : viewFactura){
+                tablaFactura.addRow(i);
+            }
+
+        }
+
+
 
     }
 
     private void chFiltroClienteActionPerformed(java.awt.event.ActionEvent evt) {
+
+        //checking commits
+
         tablaFactura.setRowCount(0);
         ArrayList<String[]> viewFactura = new ArrayList<>();
         viewFactura = methods.facturaFilterClienteView(methods.searchRowCliente(Integer.parseInt((String) cmbIDCliente.getSelectedItem())).get(0).id);
@@ -405,4 +422,5 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JTextField txtFechaFinal;
     private javax.swing.JTextField txtFechaInicial;
     // End of variables declaration
+
 }
