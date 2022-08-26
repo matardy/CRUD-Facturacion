@@ -7,6 +7,7 @@ package ModeloGUI;
 import EncapsulationObjects.ClienteEncapsulation;
 import EncapsulationObjects.ProductoEncapsulation;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -33,6 +34,8 @@ public class Detalle_Producto extends javax.swing.JFrame {
      */
     public Detalle_Producto() {
         initComponents();
+
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         tablaProducto = (DefaultTableModel) tblDetalleProducto.getModel();
 
         ArrayList<String> IDProducto;

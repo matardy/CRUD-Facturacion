@@ -1,5 +1,7 @@
 package ModeloGUI;
 
+import javax.swing.*;
+
 /**
  *
  * @author DETPC
@@ -11,6 +13,7 @@ public class MenuFactura extends javax.swing.JFrame {
      */
     public MenuFactura() {
         initComponents();
+
         setLocationRelativeTo(null);
     }
 
