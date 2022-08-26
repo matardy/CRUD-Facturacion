@@ -406,4 +406,5 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JTextField txtFechaFinal;
     private javax.swing.JTextField txtFechaInicial;
     // End of variables declaration
+    //probando
 }
