@@ -325,12 +325,12 @@ public class Detalle_Producto extends javax.swing.JFrame {
                                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Menu");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
 
-        jmiCerrarVentana2.setText("Cerrar ventana 2");
+        jmiCerrarVentana2.setText("Cerrar generar factura");
         jmiCerrarVentana2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCerrarVentana2ActionPerformed(evt);
