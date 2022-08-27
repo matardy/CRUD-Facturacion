@@ -6,9 +6,16 @@ import EncapsulationObjects.ProductoEncapsulation;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
+/**
+ * Esta clase contiene los metodos principales para hacer CRUD sobre las tablas
+ * de la base de datos
+ *
+ * @author Gutemberg S. Mendoza
+ */
 public class DBMethods {
+
+    // Variables de instancia para trabajar con coneccion a la base de datos
     Statement stmt;
     ResultSet rs;
     PreparedStatement prepStmt;

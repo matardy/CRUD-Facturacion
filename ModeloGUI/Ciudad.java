@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ModeloGUI;
-
 import EncapsulationObjects.CiudadEncapsulation;
-
-import javax.swing.*;
 import java.util.ArrayList;
 
 
 /**
- *
- * @author DETPC
+ * CRUD de la la tabla ciudad, interfaz grafica.
+ * @author Gutemberg S. Mendoza
  */
 public class Ciudad extends javax.swing.JFrame {
 
@@ -23,8 +16,7 @@ public class Ciudad extends javax.swing.JFrame {
      */
     public Ciudad() {
         initComponents();
-        //setExtendedState(JFrame.MAXIMIZED_BOTH);
-        // Set and declare all combo boxes
+
         ArrayList<String> IDCiudadArray = new ArrayList<>();
         IDCiudadArray = methods.getIDCiudad();
         cmbIDCiudad.setModel(new javax.swing.DefaultComboBoxModel(IDCiudadArray.toArray(new String[0])));
@@ -32,13 +24,6 @@ public class Ciudad extends javax.swing.JFrame {
         cmbIDCiudad.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnUpdate.setEnabled(false);
-
-
-        /*
-        ArrayList<String> val;
-        val = methods.getIDCiudad();
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(val.toArray(new String[0])));
-         */
 
     }
 
@@ -241,7 +226,7 @@ public class Ciudad extends javax.swing.JFrame {
         MenuFactura obj= new MenuFactura();
         obj.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jmiCerrarVentana5ActionPerformed
+    }
 
     private void chkHabilitarEdicionActionPerformed(java.awt.event.ActionEvent evt) {
         if(chkHabilitarEdicion.isSelected()){
@@ -270,12 +255,7 @@ public class Ciudad extends javax.swing.JFrame {
 
     }
     private void cmbIDCiudadActionPerformed(java.awt.event.ActionEvent evt) {
-        /*
-         ArrayList<CiudadEncapsulation> data = new ArrayList<CiudadEncapsulation>();
-        data = methods.searchRowCiudad(Integer.parseInt( (String) jComboBox1.getSelectedItem()));
 
-        lblExample.setText(data.get(0).estado + " "  + data.get(0).nombreCiudad);
-         */
         ArrayList<CiudadEncapsulation> data = new ArrayList<CiudadEncapsulation>();
         data = methods.searchRowCiudad(Integer.parseInt((String) cmbIDCiudad.getSelectedItem()));
         txtNombreCiudad.setText(data.get(0).nombreCiudad);
