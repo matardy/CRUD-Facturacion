@@ -2,7 +2,7 @@ package EncapsulationObjects;
 
 
 /**
- * Clase creada para encapsular los dados de la tabla cidad
+ * Clase creada para encapsular los datos de la tabla ciudad
  */
 public class CiudadEncapsulation {
 
