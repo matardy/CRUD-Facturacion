@@ -2,6 +2,7 @@ package EncapsulationObjects;
 
 /**
  * Clase creada para encapsular los datos de la tabla cliente
+ * @author Gutemberg S. Mendoza
  */
 public class ClienteEncapsulation {
     public String id;

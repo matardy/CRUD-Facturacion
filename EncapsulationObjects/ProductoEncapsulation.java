@@ -2,6 +2,7 @@ package EncapsulationObjects;
 
 /**
  * Clase para la encapsulacion de los datos de la tabla Producto
+ * @author Gutemberg S. Mendoza
  */
 public class ProductoEncapsulation {
     public String codigoProducto;

@@ -1,12 +1,8 @@
-package ModeloGUI;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-import ModeloGUI.*;
+package ModeloGUI;
 
 /**
- *
- * @author DETPC
+ * Clase principal para ejecucion de la interfaz grafica
+ * @author Gutemberg S. Mendoza
  */
 public class App {
 
