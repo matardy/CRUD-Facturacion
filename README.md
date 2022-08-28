@@ -5,3 +5,6 @@ CRUD completo realizado en Java.
 
 Pretende simular un sistema de facturación.
 
+# Diagrama entidad relación.
+![alt text](https://github.com/matardy/CRUD-Facturacion/blob/master/image.png)
+
