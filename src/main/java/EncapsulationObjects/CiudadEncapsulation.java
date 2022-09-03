@@ -1,6 +1,5 @@
 package EncapsulationObjects;
 
-
 /**
  * Clase creada para encapsular los datos de la tabla ciudad
  * @author Gutemberg S. Mendoza
