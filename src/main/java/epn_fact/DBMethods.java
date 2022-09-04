@@ -1,5 +1,6 @@
-package ModeloGUI;
+package epn_fact;
 
+import ModeloGUI.*;
 import EncapsulationObjects.CiudadEncapsulation;
 import EncapsulationObjects.ClienteEncapsulation;
 import EncapsulationObjects.ProductoEncapsulation;
@@ -39,7 +40,7 @@ public class DBMethods {
             String query = "SELECT TOP 1 * FROM CIUDAD ORDER BY CODCIUDAD DESC";
             rs = stmt.executeQuery(query);
             while(rs.next()){
-                auxCod = rs.getString("CODCIUDAD");
+                 auxCod = rs.getString("CODCIUDAD");
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -63,11 +64,15 @@ public class DBMethods {
      * Borra datos de la tabla ciudad dado el Id de la ciudad
      * @param id
      */
+    
     public void deleteCiudad(int id){
         try{
             prepStmt = conn.prepareStatement("DELETE FROM CIUDAD WHERE CODCIUDAD = ?");
             prepStmt.setString(1,String.valueOf(id));
             prepStmt.executeUpdate();
+
+
+
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -80,6 +85,7 @@ public class DBMethods {
      * @param estado
      * @param numeroHabitantes
      */
+    
     public void updateCiudad(int id,String nombreCiudad, String estado, String numeroHabitantes){
         try{
             prepStmt = conn.prepareStatement("UPDATE CIUDAD SET NOMBRECIUDAD = ?, ESTADO = ?, NUMEROHABITANTES = ? WHERE CODCIUDAD = ? ");
@@ -128,25 +134,21 @@ public class DBMethods {
      * Genera un Select * From Ciudad
      * @return Array list <Ciudad> con Select * From ciudad
      */
-    public ArrayList<CiudadEncapsulation> ciudadView(){
-        ArrayList<CiudadEncapsulation> selectCiudad = new ArrayList<CiudadEncapsulation>();
-        CiudadEncapsulation ciudad;
-        try{
+    public ArrayList<String[]> ciudadView() {
+        ArrayList<String[]> selectCiudad = new ArrayList<>();
+        try {
             prepStmt = conn.prepareStatement("SELECT * FROM CIUDAD");
-            //prepStmt.setString(1, String.valueOf(numHabitantes));
             rs = prepStmt.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 String codCiudad = rs.getString("CODCIUDAD");
                 String nombreCiudad = rs.getString("NOMBRECIUDAD");
                 String estado = rs.getString("ESTADO");
                 String numeroHabitantes = rs.getString("numeroHabitantes");
-                ciudad = new CiudadEncapsulation(codCiudad, nombreCiudad, estado,numeroHabitantes);
-                selectCiudad.add(ciudad);
-
+                String[] temp = {codCiudad, nombreCiudad, estado, numeroHabitantes};
+                selectCiudad.add(temp);
             }
-
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return selectCiudad;
@@ -533,6 +535,7 @@ public class DBMethods {
         try{
             prepStmt = conn.prepareStatement("SELECT * FROM FACTURA");
             rs = prepStmt.executeQuery();
+
             while(rs.next()){
                 String numFactura = rs.getString("NUMFACTURA");
                 String codCliente = rs.getString("CODCLIENTE");
@@ -546,6 +549,7 @@ public class DBMethods {
                 String[] temp = {numFactura, codCliente, fechaEmision, formaPago, totalFactura, descuento, iva, subtotal, total};
                 viewFactura.add(temp);
             }
+
         }catch(SQLException e){
             e.printStackTrace();
         }
