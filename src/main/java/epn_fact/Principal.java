@@ -7,7 +7,7 @@ package epn_fact;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Principal extends javax.swing.JPanel {
 

@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Reports extends javax.swing.JPanel {
 

@@ -16,7 +16,7 @@ import static epn_fact.Dashboard.content;
 import java.sql.Statement;
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class UpUsers extends javax.swing.JPanel {
 

@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ReporteCiudades extends javax.swing.JPanel {
     DBMethods methods = new DBMethods();
     DefaultTableModel tablaCiudades;
-     String Adhisson_Cedeño ="";
+    
     /**
      * Creates new form Principal
      */

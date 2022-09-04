@@ -59,6 +59,9 @@ public class Dashboard extends javax.swing.JFrame {
         btn_ver_ciudades = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        btn_mod_ciudad = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         btn_ing_ciudad = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -196,6 +199,32 @@ public class Dashboard extends javax.swing.JFrame {
         btn_ver_ciudades.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
         Menu.add(btn_ver_ciudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+
+        btn_mod_ciudad.setBackground(new java.awt.Color(18, 90, 173));
+        btn_mod_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_mod_ciudad.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_mod_ciudad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_mod_ciudadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_mod_ciudadMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_mod_ciudadMousePressed(evt);
+            }
+        });
+        btn_mod_ciudad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_mod_ciudad.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Actualizar Ciudad");
+        btn_mod_ciudad.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+
+        Menu.add(btn_mod_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, -1, -1));
 
         btn_ing_ciudad.setBackground(new java.awt.Color(18, 90, 173));
         btn_ing_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -414,12 +443,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMousePressed
 
     private void btn_prinMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMousePressed
+        resetAll();
         setColor(btn_prin);
-        resetColor(btn_lends);
-        resetColor(btn_returns);
-        resetColor(btn_users);
-        resetColor(btn_ver_ciudades);
-        resetColor(btn_ing_ciudad);
+
         // Abrir sección
         Principal p1 = new Principal();
         p1.setSize(750, 430);
@@ -432,12 +458,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_prinMousePressed
 
     private void btn_lendsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMousePressed
-        resetColor(btn_prin);
+        resetAll();
         setColor(btn_lends);
-        resetColor(btn_returns);
-        resetColor(btn_users);
-        resetColor(btn_ver_ciudades);
-        resetColor(btn_ing_ciudad);
+
         // Abrir sección
         Lendings p1 = new Lendings();
         p1.setSize(750, 430);
@@ -450,12 +473,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_lendsMousePressed
 
     private void btn_returnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMousePressed
-        resetColor(btn_prin);
-        resetColor(btn_lends);
+        resetAll();
         setColor(btn_returns);
-        resetColor(btn_users);
-        resetColor(btn_ver_ciudades);
-        resetColor(btn_ing_ciudad);
+
         // Abrir sección
         Returns p1 = new Returns();
         p1.setSize(750, 430);
@@ -468,12 +488,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_returnsMousePressed
 
     private void btn_usersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMousePressed
-        resetColor(btn_prin);
-        resetColor(btn_lends);
-        resetColor(btn_returns);
+        resetAll();
         setColor(btn_users);
-        resetColor(btn_ver_ciudades);
-        resetColor(btn_ing_ciudad);
         // Abrir sección
         Users p1 = new Users();
         p1.setSize(750, 430);
@@ -486,12 +502,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_usersMousePressed
 
     private void btn_ver_ciudadesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_ciudadesMousePressed
-        resetColor(btn_prin);
-        resetColor(btn_lends);
-        resetColor(btn_returns);
-        resetColor(btn_users);
+        resetAll();
         setColor(btn_ver_ciudades);
-        resetColor(btn_ing_ciudad);
         // Abrir sección
         ReporteCiudades p1 = new ReporteCiudades();
         p1.setSize(750, 430);
@@ -504,11 +516,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ver_ciudadesMousePressed
 
     private void btn_ing_ciudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_ciudadMousePressed
-        resetColor(btn_prin);
-        resetColor(btn_lends);
-        resetColor(btn_returns);
-        resetColor(btn_users);
-        resetColor(btn_ver_ciudades);
+        resetAll();
         setColor(btn_ing_ciudad);
         // Abrir sección
         RegistroCiudad p1 = new RegistroCiudad();
@@ -520,6 +528,21 @@ public class Dashboard extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btn_ing_ciudadMousePressed
+
+    private void btn_mod_ciudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMousePressed
+        // TODO add your handling code here:
+        resetAll();
+        setColor(btn_mod_ciudad);
+        // Abrir sección
+        ActualizarCiudad p1 = new ActualizarCiudad();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_mod_ciudadMousePressed
 
     private void red_squrMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_red_squrMousePressed
         System.exit(0);
@@ -611,11 +634,33 @@ public class Dashboard extends javax.swing.JFrame {
         exit.setForeground(new Color(102,102,102));
     }//GEN-LAST:event_exitMouseExited
 
+    private void btn_mod_ciudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMouseEntered
+        if(btn_ing_ciudad.getBackground().getRGB() == -15574355)
+            setColor(btn_mod_ciudad);
+    }//GEN-LAST:event_btn_mod_ciudadMouseEntered
+
+    private void btn_mod_ciudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMouseExited
+        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
+            || btn_returns.getBackground().getRGB() != -15574355 || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355)
+            resetColor(btn_mod_ciudad);
+    }//GEN-LAST:event_btn_mod_ciudadMouseExited
+
     void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
     }
     void resetColor(JPanel panel){
         panel.setBackground(new Color(18,90,173));
+    }
+    
+    void resetAll(){
+        resetColor(btn_prin);
+        resetColor(btn_lends);
+        resetColor(btn_returns);
+        resetColor(btn_users);
+        
+        resetColor(btn_ver_ciudades);
+        resetColor(btn_ing_ciudad);
+        resetColor(btn_mod_ciudad);
     }
     /**
      * @param args the command line arguments
@@ -660,6 +705,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel app_name;
     private javax.swing.JPanel btn_ing_ciudad;
     private javax.swing.JPanel btn_lends;
+    private javax.swing.JPanel btn_mod_ciudad;
     private javax.swing.JPanel btn_prin;
     private javax.swing.JPanel btn_returns;
     private javax.swing.JPanel btn_users;
@@ -673,6 +719,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

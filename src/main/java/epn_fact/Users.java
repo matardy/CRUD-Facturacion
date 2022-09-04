@@ -19,7 +19,7 @@ import static epn_fact.Dashboard.content;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Users extends javax.swing.JPanel {
 

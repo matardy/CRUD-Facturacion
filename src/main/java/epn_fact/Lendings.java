@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Lendings extends javax.swing.JPanel {
 

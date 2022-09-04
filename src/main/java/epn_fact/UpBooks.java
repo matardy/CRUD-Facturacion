@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import static epn_fact.Dashboard.content;
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class UpBooks extends javax.swing.JPanel {
 

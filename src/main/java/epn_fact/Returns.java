@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Returns extends javax.swing.JPanel {
     Lendings Inter;

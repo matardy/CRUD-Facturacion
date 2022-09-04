@@ -19,7 +19,7 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author Antonio
+ * @author Adhisson Cedeño
  */
 public class Books extends javax.swing.JPanel {
 
