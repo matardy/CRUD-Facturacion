@@ -5,18 +5,9 @@
  */
 package epn_fact;
 
-import EncapsulationObjects.CiudadEncapsulation;
-import java.util.ArrayList;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
-import static epn_fact.Dashboard.content;
-import java.sql.Statement;
+
 /**
  *
  * @author Adhisson Cedeño
@@ -24,26 +15,14 @@ import java.sql.Statement;
 public class RegistroCiudad extends javax.swing.JPanel {
     
     DBMethods methods = new DBMethods();
-    
-    boolean edit;
-    String idus;
+
     /**
      * Creates new form Principal
      */
     public RegistroCiudad() {
         initComponents();
-        edit = false;
     }
-    
-    public RegistroCiudad(String usid, String usname, String usap1, String usap2, String usdom, String ustel) {
-        initComponents();
-        idus = usid;
-        name.setText(usname);
-        provincia.setText(usap1);
-        habitantes.setText(usap2);
-        edit = true;
-        jLabel1.setText("Guardar");
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,7 +57,7 @@ public class RegistroCiudad extends javax.swing.JPanel {
         add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Title.setText("Registrar nueva Ciudad");
+        Title.setText("Ingreso de una nueva Ciudad");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
@@ -173,36 +152,25 @@ public class RegistroCiudad extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonMouseExited
 
     private void nameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMousePressed
+        setLabels();
         if (name.getText().equals("Ingrese el nombre")) {
             name.setText("");
         }
-        if (provincia.getText().equals("") || provincia.getText() == null || provincia.getText().equals(" ")) {
-            provincia.setText("Ingrese la provincia");
-        }
-        if (habitantes.getText().equals("") || habitantes.getText() == null || habitantes.getText().equals(" "))
-            habitantes.setText("Ingrese la cantidad de habitantes");
     }//GEN-LAST:event_nameMousePressed
 
     private void provinciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_provinciaMousePressed
-        if (name.getText().equals("") || name.getText() == null || name.getText().equals(" ")) {
-            name.setText("Ingrese el nombre");
-        }
+        setLabels();
         if (provincia.getText().equals("Ingrese la provincia")) {
             provincia.setText("");
-        }
-        if (habitantes.getText().equals("") || habitantes.getText() == null || habitantes.getText().equals(" "))
-            habitantes.setText("Ingrese la cantidad de habitantes");
+        } 
     }//GEN-LAST:event_provinciaMousePressed
 
     private void habitantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habitantesMousePressed
-        if (name.getText().equals("") || name.getText() == null || name.getText().equals(" ")) {
-            name.setText("Ingrese el nombre");
-        }
+        setLabels();
         if (habitantes.getText().equals("Ingrese la cantidad de habitantes")) {
             habitantes.setText("");
         }
-        if (provincia.getText().equals("") || provincia.getText() == null || provincia.getText().equals(" "))
-            provincia.setText("Ingrese la provincia");
+
     }//GEN-LAST:event_habitantesMousePressed
 
     private void buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMousePressed
@@ -228,11 +196,23 @@ public class RegistroCiudad extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonMousePressed
 
-    void setColor(JPanel panel){
+    private void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
     }
-    void resetColor(JPanel panel){
+    private void resetColor(JPanel panel){
         panel.setBackground(new Color(18,90,173));
+    }
+    
+    private void setLabels(){
+        if (name.getText().equals("") || name.getText() == null || name.getText().equals(" ")) {
+            name.setText("Ingrese el nombre");
+        }
+        if (habitantes.getText().equals("") || habitantes.getText() == null || habitantes.getText().equals(" ")){
+            habitantes.setText("Ingrese la cantidad de habitantes");
+        }
+        if (provincia.getText().equals("") || provincia.getText() == null || provincia.getText().equals(" ")){
+            provincia.setText("Ingrese la provincia");
+        }
     }
     
     

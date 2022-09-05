@@ -2,10 +2,7 @@ package epn_fact;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import javax.swing.JPanel;
 
 public class Dashboard extends javax.swing.JFrame {
@@ -56,10 +53,19 @@ public class Dashboard extends javax.swing.JFrame {
         btn_users = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        btn_ver_productos = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btn_act_producto = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        btn_ing_producto = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         btn_ver_ciudades = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        btn_mod_ciudad = new javax.swing.JPanel();
+        btn_act_ciudad = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         btn_ing_ciudad = new javax.swing.JPanel();
@@ -120,7 +126,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5.setText("Principal");
         btn_prin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 50));
+        Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 50));
 
         btn_returns.setBackground(new java.awt.Color(18, 90, 173));
         btn_returns.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -174,6 +180,84 @@ public class Dashboard extends javax.swing.JFrame {
 
         Menu.add(btn_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
 
+        btn_ver_productos.setBackground(new java.awt.Color(18, 90, 173));
+        btn_ver_productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_ver_productos.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_ver_productos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ver_productosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ver_productosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_ver_productosMousePressed(evt);
+            }
+        });
+        btn_ver_productos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_ver_productos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Ver Productos");
+        btn_ver_productos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+
+        Menu.add(btn_ver_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+
+        btn_act_producto.setBackground(new java.awt.Color(18, 90, 173));
+        btn_act_producto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_act_producto.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_act_producto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_act_productoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_act_productoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_act_productoMousePressed(evt);
+            }
+        });
+        btn_act_producto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_act_producto.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Actualizar Producto");
+        btn_act_producto.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+
+        Menu.add(btn_act_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, -1, -1));
+
+        btn_ing_producto.setBackground(new java.awt.Color(18, 90, 173));
+        btn_ing_producto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_ing_producto.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_ing_producto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ing_productoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ing_productoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_ing_productoMousePressed(evt);
+            }
+        });
+        btn_ing_producto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_ing_producto.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Ingresar Producto");
+        btn_ing_producto.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+
+        Menu.add(btn_ing_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, -1));
+
         btn_ver_ciudades.setBackground(new java.awt.Color(18, 90, 173));
         btn_ver_ciudades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_ver_ciudades.setPreferredSize(new java.awt.Dimension(270, 51));
@@ -198,33 +282,33 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel15.setText("Ver Ciudades");
         btn_ver_ciudades.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ver_ciudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+        Menu.add(btn_ver_ciudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
 
-        btn_mod_ciudad.setBackground(new java.awt.Color(18, 90, 173));
-        btn_mod_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_mod_ciudad.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_mod_ciudad.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_act_ciudad.setBackground(new java.awt.Color(18, 90, 173));
+        btn_act_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_act_ciudad.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_act_ciudad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_mod_ciudadMouseEntered(evt);
+                btn_act_ciudadMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_mod_ciudadMouseExited(evt);
+                btn_act_ciudadMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_mod_ciudadMousePressed(evt);
+                btn_act_ciudadMousePressed(evt);
             }
         });
-        btn_mod_ciudad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_act_ciudad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_mod_ciudad.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        btn_act_ciudad.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Actualizar Ciudad");
-        btn_mod_ciudad.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+        btn_act_ciudad.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_mod_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, -1, -1));
+        Menu.add(btn_act_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
 
         btn_ing_ciudad.setBackground(new java.awt.Color(18, 90, 173));
         btn_ing_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -250,7 +334,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel12.setText("Ingresar Ciudad");
         btn_ing_ciudad.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ing_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, -1));
+        Menu.add(btn_ing_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
 
         btn_lends.setBackground(new java.awt.Color(18, 90, 173));
         btn_lends.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -280,11 +364,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         app_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         app_name.setForeground(new java.awt.Color(255, 255, 255));
-        app_name.setText("iLib");
-        Menu.add(app_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+        app_name.setText("Facturas");
+        Menu.add(app_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jSeparator1.setPreferredSize(new java.awt.Dimension(50, 5));
-        Menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 190, 20));
+        Menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 20));
 
         Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 640));
 
@@ -296,7 +380,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         fecha.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
-        fecha.setText("Hoy es Sábado 28 de Abril de 2018");
+        fecha.setText("Hoy es Sábado 3 de Abril del 2022");
 
         javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
         Header.setLayout(HeaderLayout);
@@ -307,7 +391,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(fecha))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,8 +475,8 @@ public class Dashboard extends javax.swing.JFrame {
         Background.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
 
         slogan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        slogan.setText("We ♥  the reading!");
-        Background.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 190, 30));
+        slogan.setText("No te olvides de tomar agüita ♥ ");
+        Background.add(slogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 220, 30));
 
         content.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -475,7 +559,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void btn_returnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMousePressed
         resetAll();
         setColor(btn_returns);
-
         // Abrir sección
         Returns p1 = new Returns();
         p1.setSize(750, 430);
@@ -505,7 +588,7 @@ public class Dashboard extends javax.swing.JFrame {
         resetAll();
         setColor(btn_ver_ciudades);
         // Abrir sección
-        ReporteCiudades p1 = new ReporteCiudades();
+        VerCiudades p1 = new VerCiudades();
         p1.setSize(750, 430);
         p1.setLocation(0,0);
         
@@ -529,10 +612,9 @@ public class Dashboard extends javax.swing.JFrame {
         content.repaint();
     }//GEN-LAST:event_btn_ing_ciudadMousePressed
 
-    private void btn_mod_ciudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMousePressed
-        // TODO add your handling code here:
+    private void btn_act_ciudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_ciudadMousePressed
         resetAll();
-        setColor(btn_mod_ciudad);
+        setColor(btn_act_ciudad);
         // Abrir sección
         ActualizarCiudad p1 = new ActualizarCiudad();
         p1.setSize(750, 430);
@@ -542,77 +624,134 @@ public class Dashboard extends javax.swing.JFrame {
         content.add(p1, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_btn_mod_ciudadMousePressed
+    }//GEN-LAST:event_btn_act_ciudadMousePressed
+
+    private void btn_ver_productosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_productosMousePressed
+        resetAll();
+        setColor(btn_ing_producto);
+        // Abrir sección
+        VerProductos p1 = new VerProductos();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_ver_productosMousePressed
+
+    private void btn_act_productoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_productoMousePressed
+        resetAll();
+        setColor(btn_ing_producto);
+        // Abrir sección
+        ActualizarProducto p1 = new ActualizarProducto();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_act_productoMousePressed
+
+    private void btn_ing_productoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_productoMousePressed
+        resetAll();
+        setColor(btn_ing_producto);
+        // Abrir sección
+        RegistroProducto p1 = new RegistroProducto();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_ing_productoMousePressed
+
 
     private void red_squrMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_red_squrMousePressed
         System.exit(0);
     }//GEN-LAST:event_red_squrMousePressed
 
     private void btn_lendsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseEntered
-        if(btn_lends.getBackground().getRGB() == -15574355)
-            setColor(btn_lends);
+        setColor(btn_lends);
     }//GEN-LAST:event_btn_lendsMouseEntered
 
     private void btn_lendsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseExited
-        if(btn_prin.getBackground().getRGB() != -15574355 || btn_returns.getBackground().getRGB() != -15574355
-            || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355 || btn_ing_ciudad.getBackground().getRGB() != -15574355)
-            resetColor(btn_lends);
+        resetAll();
     }//GEN-LAST:event_btn_lendsMouseExited
 
     private void btn_prinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMouseEntered
-        if(btn_prin.getBackground().getRGB() == -15574355)
-            setColor(btn_prin);
+        setColor(btn_prin);
     }//GEN-LAST:event_btn_prinMouseEntered
 
     private void btn_prinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_returns.getBackground().getRGB() != -15574355
-            || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355 || btn_ing_ciudad.getBackground().getRGB() != -15574355)
-            resetColor(btn_prin);
+        resetAll();
     }//GEN-LAST:event_btn_prinMouseExited
 
     private void btn_returnsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseEntered
-        if(btn_returns.getBackground().getRGB() == -15574355)
-            setColor(btn_returns);
+        setColor(btn_returns);
     }//GEN-LAST:event_btn_returnsMouseEntered
 
     private void btn_returnsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
-            || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355 || btn_ing_ciudad.getBackground().getRGB() != -15574355)
-            resetColor(btn_returns);
+        resetAll();
     }//GEN-LAST:event_btn_returnsMouseExited
 
     private void btn_usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseEntered
-        if(btn_users.getBackground().getRGB() == -15574355)
-            setColor(btn_users);
+        setColor(btn_users);
     }//GEN-LAST:event_btn_usersMouseEntered
 
     private void btn_usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
-            || btn_returns.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355 || btn_ing_ciudad.getBackground().getRGB() != -15574355)
-            resetColor(btn_users);
+        resetAll();
     }//GEN-LAST:event_btn_usersMouseExited
 
     private void btn_ver_ciudadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_ciudadesMouseEntered
-        if(btn_ver_ciudades.getBackground().getRGB() == -15574355)
-            setColor(btn_ver_ciudades);
+        setColor(btn_ver_ciudades);
     }//GEN-LAST:event_btn_ver_ciudadesMouseEntered
 
     private void btn_ver_ciudadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_ciudadesMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
-            || btn_returns.getBackground().getRGB() != -15574355 || btn_users.getBackground().getRGB() != -15574355 || btn_ing_ciudad.getBackground().getRGB() != -15574355)
-            resetColor(btn_ver_ciudades);
+        resetAll();
     }//GEN-LAST:event_btn_ver_ciudadesMouseExited
 
     private void btn_ing_ciudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_ciudadMouseEntered
-        if(btn_ing_ciudad.getBackground().getRGB() == -15574355)
-            setColor(btn_ing_ciudad);
+        setColor(btn_ing_ciudad);
     }//GEN-LAST:event_btn_ing_ciudadMouseEntered
 
     private void btn_ing_ciudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_ciudadMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
-            || btn_returns.getBackground().getRGB() != -15574355 || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355)
-            resetColor(btn_ing_ciudad);
+        resetAll();
     }//GEN-LAST:event_btn_ing_ciudadMouseExited
+
+    private void btn_act_ciudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_ciudadMouseEntered
+        setColor(btn_act_ciudad);
+    }//GEN-LAST:event_btn_act_ciudadMouseEntered
+
+    private void btn_act_ciudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_ciudadMouseExited
+        resetAll();
+    }//GEN-LAST:event_btn_act_ciudadMouseExited
+
+    private void btn_ver_productosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_productosMouseEntered
+        setColor(btn_ver_productos);
+    }//GEN-LAST:event_btn_ver_productosMouseEntered
+
+    private void btn_ver_productosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_productosMouseExited
+        resetAll();
+    }//GEN-LAST:event_btn_ver_productosMouseExited
+
+    private void btn_ing_productoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_productoMouseEntered
+        setColor(btn_ing_producto);
+    }//GEN-LAST:event_btn_ing_productoMouseEntered
+
+    private void btn_ing_productoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_productoMouseExited
+        resetAll();
+    }//GEN-LAST:event_btn_ing_productoMouseExited
+
+    private void btn_act_productoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_productoMouseEntered
+        setColor(btn_act_producto);
+    }//GEN-LAST:event_btn_act_productoMouseEntered
+
+    private void btn_act_productoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_productoMouseExited
+        resetAll();
+    }//GEN-LAST:event_btn_act_productoMouseExited
 
     private void red_squrMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_red_squrMouseEntered
         red_squr.setBackground(new Color(204,0,0));
@@ -634,16 +773,6 @@ public class Dashboard extends javax.swing.JFrame {
         exit.setForeground(new Color(102,102,102));
     }//GEN-LAST:event_exitMouseExited
 
-    private void btn_mod_ciudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMouseEntered
-        if(btn_ing_ciudad.getBackground().getRGB() == -15574355)
-            setColor(btn_mod_ciudad);
-    }//GEN-LAST:event_btn_mod_ciudadMouseEntered
-
-    private void btn_mod_ciudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_mod_ciudadMouseExited
-        if(btn_lends.getBackground().getRGB() != -15574355 || btn_prin.getBackground().getRGB() != -15574355
-            || btn_returns.getBackground().getRGB() != -15574355 || btn_users.getBackground().getRGB() != -15574355 || btn_ver_ciudades.getBackground().getRGB() != -15574355)
-            resetColor(btn_mod_ciudad);
-    }//GEN-LAST:event_btn_mod_ciudadMouseExited
 
     void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
@@ -658,10 +787,15 @@ public class Dashboard extends javax.swing.JFrame {
         resetColor(btn_returns);
         resetColor(btn_users);
         
+        resetColor(btn_ver_productos);
+        resetColor(btn_ing_producto);
+        resetColor(btn_act_producto);
+        
         resetColor(btn_ver_ciudades);
         resetColor(btn_ing_ciudad);
-        resetColor(btn_mod_ciudad);
+        resetColor(btn_act_ciudad);
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -703,17 +837,21 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Title;
     private javax.swing.JLabel app_name;
+    private javax.swing.JPanel btn_act_ciudad;
+    private javax.swing.JPanel btn_act_producto;
     private javax.swing.JPanel btn_ing_ciudad;
+    private javax.swing.JPanel btn_ing_producto;
     private javax.swing.JPanel btn_lends;
-    private javax.swing.JPanel btn_mod_ciudad;
     private javax.swing.JPanel btn_prin;
     private javax.swing.JPanel btn_returns;
     private javax.swing.JPanel btn_users;
     private javax.swing.JPanel btn_ver_ciudades;
+    private javax.swing.JPanel btn_ver_productos;
     public static javax.swing.JPanel content;
     private javax.swing.JLabel exit;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -721,7 +859,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

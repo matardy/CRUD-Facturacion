@@ -197,7 +197,7 @@ public class DBMethods {
 
 
     // --------------        PRODUCTO       -----------
-    public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd){
+    public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd, String tipoProd){
         String auxCod = "";
         try{
             stmt = conn.createStatement();
@@ -219,7 +219,7 @@ public class DBMethods {
             prepStmt.setString(3, descProd);
             prepStmt.setString(4, unidadProd);
             prepStmt.setString(5, precioProd);
-            prepStmt.setString(6, "A");
+            prepStmt.setString(6, tipoProd);
             prepStmt.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -236,7 +236,7 @@ public class DBMethods {
         }
     }
 
-    public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd ){
+    public void updateProducto(int id,String nomProd, String descProd, String unidadProd, String precioProd, String tipoProd ){
         try{
             prepStmt = conn.prepareStatement("UPDATE PRODUCTO SET NOMPROD = ?, DESCPPRODUCTO = ?, UNIDADPRODUCTO = ?" +
                     ", PRECIOPRODUCTO = ?, TIPOPROD = ? WHERE CODPRODUCTO = ? ");
@@ -244,7 +244,7 @@ public class DBMethods {
             prepStmt.setString(2, descProd);
             prepStmt.setString(3, unidadProd);
             prepStmt.setString(4, precioProd);
-            prepStmt.setString(5, "A");
+            prepStmt.setString(5, tipoProd);
             prepStmt.setString(6, String.valueOf(id));
             prepStmt.executeUpdate();
         }catch(SQLException e){
@@ -277,11 +277,10 @@ public class DBMethods {
         return selectProducto;
     }
 
-    public ArrayList<ProductoEncapsulation> productoView(){
-        ArrayList<ProductoEncapsulation> selectProducto = new ArrayList<ProductoEncapsulation>();
+    public ArrayList<String[]> productoView(){
+        ArrayList<String[]> selectProducto = new ArrayList<>();
         try{
             prepStmt = conn.prepareStatement("SELECT * FROM PRODUCTO");
-            //prepStmt.setString(1, String.valueOf(id));
             rs = prepStmt.executeQuery();
 
             while(rs.next()){
@@ -291,8 +290,7 @@ public class DBMethods {
                 String uniProd = rs.getString("UNIDADPRODUCTO");
                 String precioProd = rs.getString("PRECIOPRODUCTO");
                 String tipoProd = rs.getString("TIPOPROD");
-                ProductoEncapsulation producto;
-                producto = new ProductoEncapsulation(codProd,nomprod,descProd,uniProd,precioProd,tipoProd);
+                String[] producto = {codProd,nomprod,descProd,uniProd,precioProd,tipoProd};
                 selectProducto.add(producto);
             }
 

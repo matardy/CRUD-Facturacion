@@ -5,23 +5,21 @@
  */
 package epn_fact;
 
-import EncapsulationObjects.CiudadEncapsulation;
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Adhisson Cedeño
  */
-public class ActualizarCiudad extends javax.swing.JPanel {
+public class RegistroProducto extends javax.swing.JPanel {
     
     DBMethods methods = new DBMethods();
     
     /**
      * Creates new form Principal
      */
-    public ActualizarCiudad() {
+    public RegistroProducto() {
         initComponents();
     }
     
@@ -40,17 +38,20 @@ public class ActualizarCiudad extends javax.swing.JPanel {
         button = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Text3 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         Text4 = new javax.swing.JLabel();
-        provincia = new javax.swing.JTextField();
+        descuento = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         Text5 = new javax.swing.JLabel();
-        habitantes = new javax.swing.JTextField();
+        unidades = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         Text6 = new javax.swing.JLabel();
-        codigo = new javax.swing.JTextField();
+        precio = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
+        Text7 = new javax.swing.JLabel();
+        tipo = new javax.swing.JTextField();
+        jSeparator8 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -62,7 +63,7 @@ public class ActualizarCiudad extends javax.swing.JPanel {
         add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Title.setText("Actualizar Ciudad");
+        Title.setText("Ingreso de un Producto");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
@@ -88,82 +89,100 @@ public class ActualizarCiudad extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Actualizar");
+        jLabel1.setText("Registro");
         button.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
-        add(button, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 260, 50));
+        add(button, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 260, 50));
 
         Text3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Text3.setText("Nombre");
         add(Text3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        name.setForeground(new java.awt.Color(102, 102, 102));
-        name.setText("Ingrese el nombre");
-        name.setBorder(null);
-        name.addMouseListener(new java.awt.event.MouseAdapter() {
+        nombre.setForeground(new java.awt.Color(102, 102, 102));
+        nombre.setText("Ingrese el nombre");
+        nombre.setBorder(null);
+        nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                nameMousePressed(evt);
+                nombreMousePressed(evt);
             }
         });
-        add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 260, 30));
+        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 260, 30));
 
         jSeparator4.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator4.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 260, 10));
 
         Text4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text4.setText("Provincia o Estado");
+        Text4.setText("Descuento");
         add(Text4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
-        provincia.setForeground(new java.awt.Color(102, 102, 102));
-        provincia.setText("Ingrese la provincia");
-        provincia.setBorder(null);
-        provincia.addMouseListener(new java.awt.event.MouseAdapter() {
+        descuento.setForeground(new java.awt.Color(102, 102, 102));
+        descuento.setText("Ingrese el descuento en porcentaje");
+        descuento.setBorder(null);
+        descuento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                provinciaMousePressed(evt);
+                descuentoMousePressed(evt);
             }
         });
-        add(provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, 30));
+        add(descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, 30));
 
         jSeparator5.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator5.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 260, 10));
 
         Text5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text5.setText("Cantidad de Habitantes");
+        Text5.setText("Cantidad de Unidades");
         add(Text5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        habitantes.setForeground(new java.awt.Color(102, 102, 102));
-        habitantes.setText("Ingrese la cantidad de habitantes");
-        habitantes.setBorder(null);
-        habitantes.addMouseListener(new java.awt.event.MouseAdapter() {
+        unidades.setForeground(new java.awt.Color(102, 102, 102));
+        unidades.setText("Ingrese la cantidad de unidades existen");
+        unidades.setBorder(null);
+        unidades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                habitantesMousePressed(evt);
+                unidadesMousePressed(evt);
             }
         });
-        add(habitantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 260, 30));
+        add(unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 260, 30));
 
         jSeparator6.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator6.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 260, 10));
 
         Text6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text6.setText("Código de la Ciudad");
+        Text6.setText("Precio");
         add(Text6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
 
-        codigo.setForeground(new java.awt.Color(102, 102, 102));
-        codigo.setText("Ingrese el código de la ciudad");
-        codigo.setBorder(null);
-        codigo.addMouseListener(new java.awt.event.MouseAdapter() {
+        precio.setForeground(new java.awt.Color(102, 102, 102));
+        precio.setText("Ingrese el precio del producto");
+        precio.setBorder(null);
+        precio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                codigoMousePressed(evt);
+                precioMousePressed(evt);
             }
         });
-        add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 260, 30));
+        add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 260, 30));
 
         jSeparator7.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator7.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 260, 10));
+
+        Text7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Text7.setText("Tipo");
+        add(Text7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, -1, -1));
+
+        tipo.setForeground(new java.awt.Color(102, 102, 102));
+        tipo.setText("Ingrese el tipo del producto");
+        tipo.setBorder(null);
+        tipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tipoMousePressed(evt);
+            }
+        });
+        add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 260, 30));
+
+        jSeparator8.setForeground(new java.awt.Color(0, 153, 255));
+        jSeparator8.setPreferredSize(new java.awt.Dimension(200, 10));
+        add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 260, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseEntered
@@ -174,62 +193,73 @@ public class ActualizarCiudad extends javax.swing.JPanel {
         resetColor(button);
     }//GEN-LAST:event_buttonMouseExited
 
-    private void nameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMousePressed
+    private void nombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMousePressed
         setLabels();
-        if (name.getText().equals("Ingrese el nombre")) {
-            name.setText("");
+        if (nombre.getText().equals("Ingrese el nombre")) {
+            nombre.setText("");
         }
-    }//GEN-LAST:event_nameMousePressed
+    }//GEN-LAST:event_nombreMousePressed
 
-    private void provinciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_provinciaMousePressed
+    private void descuentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descuentoMousePressed
         setLabels();
-        if (provincia.getText().equals("Ingrese la provincia")) {
-            provincia.setText("");
+        if (descuento.getText().equals("Ingrese el descuento en porcentaje")) {
+            descuento.setText("");
         }
-    }//GEN-LAST:event_provinciaMousePressed
+    }//GEN-LAST:event_descuentoMousePressed
 
-    private void habitantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_habitantesMousePressed
+    private void unidadesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_unidadesMousePressed
         setLabels();
-        if (habitantes.getText().equals("Ingrese la cantidad de habitantes")) {
-            habitantes.setText("");
+        if (unidades.getText().equals("Ingrese la cantidad de unidades existen")) {
+            unidades.setText("");
         }
-    }//GEN-LAST:event_habitantesMousePressed
+    }//GEN-LAST:event_unidadesMousePressed
 
-    private void codigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codigoMousePressed
+    private void precioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_precioMousePressed
         setLabels();
-        if (codigo.getText().equals("Ingrese el código de la ciudad")) {
-            codigo.setText("");
+        if (precio.getText().equals("Ingrese el precio del producto")) {
+            precio.setText("");
         }
-        ArrayList<CiudadEncapsulation> data = new ArrayList<>();
-        data = methods.searchRowCiudad(Integer.parseInt(codigo.getText()));
-        name.setText(data.get(0).nombreCiudad);
-        provincia.setText(data.get(0).estado);
-        habitantes.setText(data.get(0).numeroHabitantes);
-    }//GEN-LAST:event_codigoMousePressed
+    }//GEN-LAST:event_precioMousePressed
+
+    private void tipoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tipoMousePressed
+        setLabels();
+        if (tipo.getText().equals("Ingrese el tipo del producto")) {
+            tipo.setText("");
+        }
+    }//GEN-LAST:event_tipoMousePressed
 
     private void buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMousePressed
 
         try {
-            if (name.getText().equals("Ingrese el nombre") || provincia.getText().equals("Ingrese la provincia")
-                    || habitantes.getText().equals("Ingrese la cantidad de habitantes") || codigo.getText().equals("Ingrese el código de la ciudad")) {
+            if (nombre.getText().equals("Ingrese el nombre") 
+                    || descuento.getText().equals("Ingrese la provincia")
+                    || unidades.getText().equals("Ingrese la cantidad de unidades existen") 
+                    || precio.getText().equals("Ingrese el precio del producto")
+                    || tipo.getText().equals("Ingrese el tipo del producto")) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos \n", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                name.requestFocus();
+                nombre.requestFocus();
             } else {
-                String uname = name.getText();
-                String uprov = provincia.getText();
-                String uhabit = habitantes.getText();
-                String ucod = codigo.getText();
-
-                if (uname == null || "".equals(uname) || uprov == null || "".equals(uprov) || uhabit == null || "".equals(uhabit) || ucod == null || "".equals(ucod)) {
+                String uname = nombre.getText();
+                String udesc = descuento.getText();
+                String uUni = unidades.getText();
+                String uprecio = precio.getText();
+                String utipo = tipo.getText();
+                
+                if (uname == null || "".equals(uname)
+                        || udesc == null || "".equals(udesc)
+                        || uUni == null || "".equals(uUni)
+                        || uprecio == null || "".equals(uprecio)
+                        || utipo == null || "".equals(utipo)) {
                     javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos \n", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                    name.requestFocus();
+                    nombre.requestFocus();
                 } else {
-                    methods.updateCiudad(Integer.parseInt(ucod), uname, uprov, uhabit);
-                    name.setText("");
-                    provincia.setText("");
-                    habitantes.setText("");
-                    codigo.setText("");
-                    javax.swing.JOptionPane.showMessageDialog(this, "¡Ciudad actualizada correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    methods.setProducto(uname, udesc, uUni, uprecio,utipo);
+                    nombre.setText("");
+                    descuento.setText("");
+                    unidades.setText("");
+                    precio.setText("");
+                    tipo.setText("");
+                    javax.swing.JOptionPane.showMessageDialog(this, "¡Producto ingresado correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } catch (Exception e) {
@@ -237,26 +267,31 @@ public class ActualizarCiudad extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonMousePressed
 
-    void setColor(JPanel panel){
+    private void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
     }
-    void resetColor(JPanel panel){
+    private void resetColor(JPanel panel){
         panel.setBackground(new Color(18,90,173));
     }
+    
     private void setLabels(){
-        if (name.getText().equals("") || name.getText() == null || name.getText().equals(" ")) {
-            name.setText("Ingrese el nombre");
+        if (nombre.getText().equals("") || nombre.getText() == null || nombre.getText().equals(" ")) {
+            nombre.setText("Ingrese el nombre");
         }
-        if (habitantes.getText().equals("") || habitantes.getText() == null || habitantes.getText().equals(" ")) {
-            habitantes.setText("Ingrese la cantidad de habitantes");
+        if (unidades.getText().equals("") || unidades.getText() == null || unidades.getText().equals(" ")) {
+            unidades.setText("Ingrese la cantidad de unidades existen");
         }
-        if (provincia.getText().equals("") || provincia.getText() == null || provincia.getText().equals(" ")) {
-            provincia.setText("Ingrese la provincia");
+        if (descuento.getText().equals("") || descuento.getText() == null || descuento.getText().equals(" ")) {
+            descuento.setText("Ingrese el descuento en porcentaje");
         }
-        if (codigo.getText().equals("") || codigo.getText() == null || codigo.getText().equals(" ")) {
-            codigo.setText("Ingrese el código de la ciudad");
+        if (precio.getText().equals("") || precio.getText() == null || precio.getText().equals(" ")) {
+            precio.setText("Ingrese el precio del producto");
+        }
+        if (tipo.getText().equals("") || tipo.getText() == null || tipo.getText().equals(" ")){
+            tipo.setText("Ingrese el tipo del producto");
         }
     }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -264,18 +299,21 @@ public class ActualizarCiudad extends javax.swing.JPanel {
     private javax.swing.JLabel Text4;
     private javax.swing.JLabel Text5;
     private javax.swing.JLabel Text6;
+    private javax.swing.JLabel Text7;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel body;
     private javax.swing.JPanel button;
-    private javax.swing.JTextField codigo;
-    private javax.swing.JTextField habitantes;
+    private javax.swing.JTextField descuento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextField name;
-    private javax.swing.JTextField provincia;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField precio;
+    private javax.swing.JTextField tipo;
+    private javax.swing.JTextField unidades;
     // End of variables declaration//GEN-END:variables
 }

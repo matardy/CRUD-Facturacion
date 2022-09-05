@@ -17,25 +17,27 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adhisson_Cedeño
  */
-public class ReporteCiudades extends javax.swing.JPanel {
+public class VerProductos extends javax.swing.JPanel {
     DBMethods methods = new DBMethods();
-    DefaultTableModel tablaCiudades;
+    DefaultTableModel tablaProductos;
     
     /**
      * Creates new form Principal
      */
-    public ReporteCiudades() {
+    public VerProductos() {
         initComponents();
-        tablaCiudades = new DefaultTableModel();
-        tablaCiudades.addColumn("Código");
-        tablaCiudades.addColumn("Nombre");
-        tablaCiudades.addColumn("Provincia");
-        tablaCiudades.addColumn("Habitantes");
-        jTable1.setModel(tablaCiudades);
+        tablaProductos = new DefaultTableModel();
+        tablaProductos.addColumn("Código");
+        tablaProductos.addColumn("Nombre");
+        tablaProductos.addColumn("Descuento");
+        tablaProductos.addColumn("Unidades");
+        tablaProductos.addColumn("Precio");
+        tablaProductos.addColumn("Tipo");
+        jTable1.setModel(tablaProductos);
         try {
             GetReports();
         } catch (SQLException ex) {
-            Logger.getLogger(ReporteCiudades.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VerProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -65,37 +67,37 @@ public class ReporteCiudades extends javax.swing.JPanel {
         add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Title.setText("Ciudades");
+        Title.setText("Productos");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre", "Provincia", "Habitantes"
+                "Código", "Nombre", "Descuento", "Unidades", "Precio", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -157,7 +159,7 @@ public class ReporteCiudades extends javax.swing.JPanel {
         try {
             GetReports();
         } catch (SQLException ex) {
-            Logger.getLogger(ReporteCiudades.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VerProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonMousePressed
 
@@ -169,11 +171,11 @@ public class ReporteCiudades extends javax.swing.JPanel {
     }
     
     private void GetReports() throws SQLException{
-        tablaCiudades.setRowCount(0);
-        ArrayList<String[]> viewCiudades = new ArrayList<>();
-        viewCiudades = methods.ciudadView();
-        for(String[] i : viewCiudades){
-            tablaCiudades.addRow(i);
+        tablaProductos.setRowCount(0);
+        ArrayList<String[]> viewProductos = new ArrayList<>();
+        viewProductos = methods.productoView();
+        for(String[] i : viewProductos){
+            tablaProductos.addRow(i);
         }
         
     }
