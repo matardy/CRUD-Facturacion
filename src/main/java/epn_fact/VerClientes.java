@@ -6,34 +6,38 @@
 package epn_fact;
 
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Adhisson Cedeño
+ * @author Adhisson_Cedeño
  */
-public class Reports extends javax.swing.JPanel {
-
-    Connect conn;
-    Connection reg;
+public class VerClientes extends javax.swing.JPanel {
+    DBMethods methods = new DBMethods();
+    DefaultTableModel tablaClientes;
+    
     /**
      * Creates new form Principal
      */
-    public Reports() {
+    public VerClientes() {
         initComponents();
-        conn = new Connect();
-        reg = conn.getConnection();
+        tablaClientes = new DefaultTableModel();
+        tablaClientes.addColumn("Código");
+        tablaClientes.addColumn("Código Ciudad");
+        tablaClientes.addColumn("Nombre");
+        tablaClientes.addColumn("Apellido");
+        tablaClientes.addColumn("Correo");
+        tablaClientes.addColumn("Salario");
+        jTable1.setModel(tablaClientes);
         try {
             GetReports();
         } catch (SQLException ex) {
-            Logger.getLogger(Reports.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -51,7 +55,7 @@ public class Reports extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         button = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -63,41 +67,37 @@ public class Reports extends javax.swing.JPanel {
         add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Title.setText("Reportes");
+        Title.setText("Clientes");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "User ID", "Book ID", "Fecha de Salida", "Fecha de Entrega"
+                "Código", "Nombre", "Descuento", "Unidades", "Precio", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -135,16 +135,10 @@ public class Reports extends javax.swing.JPanel {
         });
         button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Actualizar");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
-            }
-        });
-        button.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Actualizar");
+        button.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, 30));
 
         add(button, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
@@ -165,17 +159,9 @@ public class Reports extends javax.swing.JPanel {
         try {
             GetReports();
         } catch (SQLException ex) {
-            Logger.getLogger(Reports.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VerClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonMousePressed
-
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-        try {
-            GetReports();
-        } catch (SQLException ex) {
-            Logger.getLogger(Reports.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabel1MousePressed
 
     void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
@@ -185,35 +171,19 @@ public class Reports extends javax.swing.JPanel {
     }
     
     private void GetReports() throws SQLException{
-        Statement stm = reg.createStatement();
-        ResultSet counter = stm.executeQuery("SELECT * FROM `lendings`");
-        
-        int count = 0;
-        while(counter.next()){count++;}
-        
-        String list[][] = new String[count][4];
-        int i = 0;
-        ResultSet re = stm.executeQuery("SELECT * FROM `lendings`");
-        while(re.next()){
-            list[i][0] = re.getString("user_id");
-            list[i][1] = re.getString("book_id");
-            list[i][2] = re.getString("date_out");
-            list[i][3] = re.getString("date_return");
-            i++;
+        tablaClientes.setRowCount(0);
+        ArrayList<String[]> viewClientes = new ArrayList<>();
+        viewClientes = methods.clienteView();
+        for(String[] i : viewClientes){
+            tablaClientes.addRow(i);
         }
-        
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        list,
-        new String [] {
-            "User ID", "Book ID", "Fecha de Salida", "Fecha de Entrega"
-        }));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
     private javax.swing.JPanel body;
     private javax.swing.JPanel button;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

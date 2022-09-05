@@ -5,7 +5,7 @@
  */
 package epn_fact;
 
-import EncapsulationObjects.ProductoEncapsulation;
+import EncapsulationObjects.ClienteEncapsulation;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -15,14 +15,14 @@ import javax.swing.JPanel;
  *
  * @author Adhisson Cedeño
  */
-public class ActualizarProducto extends javax.swing.JPanel {
+public class ActualizarCliente extends javax.swing.JPanel {
     
     DBMethods methods = new DBMethods();
     
     /**
      * Creates new form Principal
      */
-    public ActualizarProducto() {
+    public ActualizarCliente() {
         initComponents();
     }
     
@@ -46,16 +46,16 @@ public class ActualizarProducto extends javax.swing.JPanel {
         nombre = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         Text4 = new javax.swing.JLabel();
-        descuento = new javax.swing.JTextField();
+        apellido = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         Text5 = new javax.swing.JLabel();
-        unidades = new javax.swing.JTextField();
+        correo = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         Text6 = new javax.swing.JLabel();
-        precio = new javax.swing.JTextField();
+        salario = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         Text7 = new javax.swing.JLabel();
-        tipo = new javax.swing.JTextField();
+        ciudad = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         Text8 = new javax.swing.JLabel();
         codigo = new javax.swing.JTextField();
@@ -71,7 +71,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Title.setText("Actualizar un Producto");
+        Title.setText("Actualizar un Cliente");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
@@ -144,72 +144,72 @@ public class ActualizarProducto extends javax.swing.JPanel {
         add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 260, 10));
 
         Text4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text4.setText("Descuento");
+        Text4.setText("Apellido");
         add(Text4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        descuento.setForeground(new java.awt.Color(102, 102, 102));
-        descuento.setText("Ingrese el descuento en porcentaje");
-        descuento.setBorder(null);
-        descuento.addMouseListener(new java.awt.event.MouseAdapter() {
+        apellido.setForeground(new java.awt.Color(102, 102, 102));
+        apellido.setText("Ingrese el apellido");
+        apellido.setBorder(null);
+        apellido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                descuentoMousePressed(evt);
+                apellidoMousePressed(evt);
             }
         });
-        add(descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 260, 30));
+        add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 260, 30));
 
         jSeparator5.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator5.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 260, 10));
 
         Text5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text5.setText("Cantidad de Unidades");
+        Text5.setText("Correo");
         add(Text5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
 
-        unidades.setForeground(new java.awt.Color(102, 102, 102));
-        unidades.setText("Ingrese la cantidad de unidades existen");
-        unidades.setBorder(null);
-        unidades.addMouseListener(new java.awt.event.MouseAdapter() {
+        correo.setForeground(new java.awt.Color(102, 102, 102));
+        correo.setText("Ingrese el correo");
+        correo.setBorder(null);
+        correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                unidadesMousePressed(evt);
+                correoMousePressed(evt);
             }
         });
-        add(unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 260, 30));
+        add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 260, 30));
 
         jSeparator6.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator6.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 260, 10));
 
         Text6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text6.setText("Precio");
+        Text6.setText("Salario");
         add(Text6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, -1, -1));
 
-        precio.setForeground(new java.awt.Color(102, 102, 102));
-        precio.setText("Ingrese el precio del producto");
-        precio.setBorder(null);
-        precio.addMouseListener(new java.awt.event.MouseAdapter() {
+        salario.setForeground(new java.awt.Color(102, 102, 102));
+        salario.setText("Ingrese el salario");
+        salario.setBorder(null);
+        salario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                precioMousePressed(evt);
+                salarioMousePressed(evt);
             }
         });
-        add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 260, 30));
+        add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 260, 30));
 
         jSeparator7.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator7.setPreferredSize(new java.awt.Dimension(200, 10));
         add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 260, 10));
 
         Text7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Text7.setText("Tipo");
+        Text7.setText("Código de Ciudad");
         add(Text7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
 
-        tipo.setForeground(new java.awt.Color(102, 102, 102));
-        tipo.setText("Ingrese el tipo del producto");
-        tipo.setBorder(null);
-        tipo.addMouseListener(new java.awt.event.MouseAdapter() {
+        ciudad.setForeground(new java.awt.Color(102, 102, 102));
+        ciudad.setText("Ingrese el código de la ciudad del cliente");
+        ciudad.setBorder(null);
+        ciudad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tipoMousePressed(evt);
+                ciudadMousePressed(evt);
             }
         });
-        add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 260, 30));
+        add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 260, 30));
 
         jSeparator8.setForeground(new java.awt.Color(0, 153, 255));
         jSeparator8.setPreferredSize(new java.awt.Dimension(200, 10));
@@ -220,7 +220,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         add(Text8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         codigo.setForeground(new java.awt.Color(102, 102, 102));
-        codigo.setText("Ingrese el código del producto");
+        codigo.setText("Ingrese el código del cliente");
         codigo.setBorder(null);
         codigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -249,82 +249,82 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_nombreMousePressed
 
-    private void descuentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descuentoMousePressed
+    private void apellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellidoMousePressed
         setLabels();
-        if (descuento.getText().equals("Ingrese el descuento en porcentaje")) {
-            descuento.setText("");
+        if (apellido.getText().equals("Ingrese el apellido")) {
+            apellido.setText("");
         }
-    }//GEN-LAST:event_descuentoMousePressed
+    }//GEN-LAST:event_apellidoMousePressed
 
-    private void unidadesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_unidadesMousePressed
+    private void correoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMousePressed
         setLabels();
-        if (unidades.getText().equals("Ingrese la cantidad de unidades existen")) {
-            unidades.setText("");
+        if (correo.getText().equals("Ingrese el correo")) {
+            correo.setText("");
         }
-    }//GEN-LAST:event_unidadesMousePressed
+    }//GEN-LAST:event_correoMousePressed
 
-    private void precioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_precioMousePressed
+    private void salarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salarioMousePressed
         setLabels();
-        if (precio.getText().equals("Ingrese el precio del producto")) {
-            precio.setText("");
+        if (salario.getText().equals("Ingrese el salario")) {
+            salario.setText("");
         }
-    }//GEN-LAST:event_precioMousePressed
+    }//GEN-LAST:event_salarioMousePressed
 
-    private void tipoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tipoMousePressed
+    private void ciudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ciudadMousePressed
         setLabels();
-        if (tipo.getText().equals("Ingrese el tipo del producto")) {
-            tipo.setText("");
+        if (ciudad.getText().equals("Ingrese el código de la ciudad del cliente")) {
+            ciudad.setText("");
         }
-    }//GEN-LAST:event_tipoMousePressed
+    }//GEN-LAST:event_ciudadMousePressed
 
     private void codigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codigoMousePressed
         setLabels();
-        if (codigo.getText().equals("Ingrese el código del producto")) {
+        if (codigo.getText().equals("Ingrese el código del cliente")) {
             codigo.setText("");
         }
-        ArrayList<ProductoEncapsulation> data = new ArrayList<>();
-        data = methods.searchRowProducto(Integer.parseInt(codigo.getText()));
-        nombre.setText(data.get(0).nombreProducto);
-        descuento.setText(data.get(0).descuentoProducto);
-        unidades.setText(data.get(0).unidadProducto);
-        precio.setText(data.get(0).precioProducto);
-        tipo.setText(data.get(0).tipoProducto);
+        ArrayList<ClienteEncapsulation> data = new ArrayList<>();
+        data = methods.searchRowCliente(Integer.parseInt(codigo.getText()));
+        nombre.setText(data.get(0).nombreCliente);
+        apellido.setText(data.get(0).apellidoCliente);
+        correo.setText(data.get(0).correoCliente);
+        salario.setText(data.get(0).salario);
+        ciudad.setText(data.get(0).codCiudad);
     }//GEN-LAST:event_codigoMousePressed
 
     private void btnActualizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMousePressed
 
         try {
             if (nombre.getText().equals("Ingrese el nombre") 
-                    || descuento.getText().equals("Ingrese el descuento en procentaje")
-                    || unidades.getText().equals("Ingrese la cantidad de unidades existen") 
-                    || precio.getText().equals("Ingrese el precio del producto")
-                    || tipo.getText().equals("Ingrese el tipo del producto")
-                    || codigo.getText().equals("Ingrese el código del producto")) {
+                    || apellido.getText().equals("Ingrese el apellido")
+                    || correo.getText().equals("Ingrese el correo") 
+                    || salario.getText().equals("Ingrese el salario")
+                    || ciudad.getText().equals("Ingrese el código de la ciudad del cliente")
+                    || codigo.getText().equals("Ingrese el código del cliente")) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos \n", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 nombre.requestFocus();
             } else {
                 String uname = nombre.getText();
-                String udesc = descuento.getText();
-                String uUni = unidades.getText();
-                String uprecio = precio.getText();
-                String utipo = tipo.getText();
+                String uape = apellido.getText();
+                String ucor = correo.getText();
+                String usalario = salario.getText();
+                String uciudad = ciudad.getText();
                 String ucod = codigo.getText();
 
                 if (uname == null || "".equals(uname)
-                        || udesc == null || "".equals(udesc)
-                        || uUni == null || "".equals(uUni)
-                        || uprecio == null || "".equals(uprecio)
-                        || utipo == null || "".equals(utipo)
+                        || uape == null || "".equals(uape)
+                        || ucor == null || "".equals(ucor)
+                        || usalario == null || "".equals(usalario)
+                        || uciudad == null || "".equals(uciudad)
                         || ucod == null || "".equals(ucod)) {
                     javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos \n", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                     nombre.requestFocus();
                 } else {
-                    methods.updateProducto(Integer.parseInt(ucod), uname, udesc, uUni, uprecio, utipo);
+                    methods.updateCliente(Integer.parseInt(ucod), uciudad, uname, uape, ucor, usalario);
                     nombre.setText("");
-                    descuento.setText("");
-                    unidades.setText("");
-                    precio.setText("");
-                    tipo.setText("");
+                    apellido.setText("");
+                    correo.setText("");
+                    salario.setText("");
+                    ciudad.setText("");
                     codigo.setText("");
                     javax.swing.JOptionPane.showMessageDialog(this, "¡Producto actualizado correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -343,16 +343,15 @@ public class ActualizarProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarMouseExited
 
     private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
-        try{
-            int op = JOptionPane.showConfirmDialog(null, "Confirmar la eliminación del producto");
-            if (op == 0){
-                
-                methods.deleteProducto(Integer.parseInt(codigo.getText()));
-                javax.swing.JOptionPane.showMessageDialog(this, "¡Producto eliminado correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        try {
+            int op = JOptionPane.showConfirmDialog(null, "Confirmar la eliminación del cliente");
+            if (op == 0) {
+                methods.deleteCliente(Integer.parseInt(codigo.getText()));
+                JOptionPane.showMessageDialog(this, "¡Cliente eliminado correctamente! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             }
-            
-        }catch (Exception e){
-            
+
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_btnEliminarMousePressed
 
@@ -367,20 +366,20 @@ public class ActualizarProducto extends javax.swing.JPanel {
         if (nombre.getText().equals("") || nombre.getText() == null || nombre.getText().equals(" ")) {
             nombre.setText("Ingrese el nombre");
         }
-        if (unidades.getText().equals("") || unidades.getText() == null || unidades.getText().equals(" ")) {
-            unidades.setText("Ingrese la cantidad de unidades existen");
+        if (correo.getText().equals("") || correo.getText() == null || correo.getText().equals(" ")) {
+            correo.setText("Ingrese el código del cliente");
         }
-        if (descuento.getText().equals("") || descuento.getText() == null || descuento.getText().equals(" ")) {
-            descuento.setText("Ingrese el descuento en porcentaje");
+        if (apellido.getText().equals("") || apellido.getText() == null || apellido.getText().equals(" ")) {
+            apellido.setText("Ingrese el apellido");
         }
-        if (precio.getText().equals("") || precio.getText() == null || precio.getText().equals(" ")) {
-            precio.setText("Ingrese el precio del producto");
+        if (salario.getText().equals("") || salario.getText() == null || salario.getText().equals(" ")) {
+            salario.setText("Ingrese el correo");
         }
-        if (tipo.getText().equals("") || tipo.getText() == null || tipo.getText().equals(" ")){
-            tipo.setText("Ingrese el tipo del producto");
+        if (ciudad.getText().equals("") || ciudad.getText() == null || ciudad.getText().equals(" ")){
+            ciudad.setText("Ingrese el salario");
         }
         if (codigo.getText().equals("") || codigo.getText() == null || codigo.getText().equals(" ")){
-            codigo.setText("Ingrese el código del producto");
+            codigo.setText("Ingrese el código de la ciudad del cliente");
         }
     }
     
@@ -394,11 +393,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private javax.swing.JLabel Text7;
     private javax.swing.JLabel Text8;
     private javax.swing.JLabel Title;
+    private javax.swing.JTextField apellido;
     private javax.swing.JPanel body;
     private javax.swing.JPanel btnActualizar;
     private javax.swing.JPanel btnEliminar;
+    private javax.swing.JTextField ciudad;
     private javax.swing.JTextField codigo;
-    private javax.swing.JTextField descuento;
+    private javax.swing.JTextField correo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator3;
@@ -409,8 +410,6 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField nombre;
-    private javax.swing.JTextField precio;
-    private javax.swing.JTextField tipo;
-    private javax.swing.JTextField unidades;
+    private javax.swing.JTextField salario;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,10 +47,10 @@ public class Dashboard extends javax.swing.JFrame {
         btn_prin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btn_returns = new javax.swing.JPanel();
+        btn_ing_cliente = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btn_users = new javax.swing.JPanel();
+        btn_act_cliente = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btn_ver_productos = new javax.swing.JPanel();
@@ -71,7 +71,7 @@ public class Dashboard extends javax.swing.JFrame {
         btn_ing_ciudad = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        btn_lends = new javax.swing.JPanel();
+        btn_ver_cliente = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         app_name = new javax.swing.JLabel();
@@ -128,57 +128,57 @@ public class Dashboard extends javax.swing.JFrame {
 
         Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 50));
 
-        btn_returns.setBackground(new java.awt.Color(18, 90, 173));
-        btn_returns.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_returns.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_returns.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ing_cliente.setBackground(new java.awt.Color(18, 90, 173));
+        btn_ing_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_ing_cliente.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_ing_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_returnsMouseEntered(evt);
+                btn_ing_clienteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_returnsMouseExited(evt);
+                btn_ing_clienteMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_returnsMousePressed(evt);
+                btn_ing_clienteMousePressed(evt);
             }
         });
-        btn_returns.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_ing_cliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_returns.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        btn_ing_cliente.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Devoluciones");
-        btn_returns.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+        jLabel4.setText("Ingresar Cliente");
+        btn_ing_cliente.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_returns, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+        Menu.add(btn_ing_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
 
-        btn_users.setBackground(new java.awt.Color(18, 90, 173));
-        btn_users.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_users.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_users.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_act_cliente.setBackground(new java.awt.Color(18, 90, 173));
+        btn_act_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_act_cliente.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_act_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_usersMouseEntered(evt);
+                btn_act_clienteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_usersMouseExited(evt);
+                btn_act_clienteMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_usersMousePressed(evt);
+                btn_act_clienteMousePressed(evt);
             }
         });
-        btn_users.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_act_cliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_users.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        btn_act_cliente.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Usuarios");
-        btn_users.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+        jLabel8.setText("Actualizar Cliente");
+        btn_act_cliente.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+        Menu.add(btn_act_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
 
         btn_ver_productos.setBackground(new java.awt.Color(18, 90, 173));
         btn_ver_productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -336,31 +336,31 @@ public class Dashboard extends javax.swing.JFrame {
 
         Menu.add(btn_ing_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
 
-        btn_lends.setBackground(new java.awt.Color(18, 90, 173));
-        btn_lends.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_lends.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_lends.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_ver_cliente.setBackground(new java.awt.Color(18, 90, 173));
+        btn_ver_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_ver_cliente.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_ver_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_lendsMouseEntered(evt);
+                btn_ver_clienteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_lendsMouseExited(evt);
+                btn_ver_clienteMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_lendsMousePressed(evt);
+                btn_ver_clienteMousePressed(evt);
             }
         });
-        btn_lends.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_ver_cliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_lends.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        btn_ver_cliente.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Préstamos");
-        btn_lends.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+        jLabel14.setText("Ver Clientes");
+        btn_ver_cliente.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_lends, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
+        Menu.add(btn_ver_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         app_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         app_name.setForeground(new java.awt.Color(255, 255, 255));
@@ -541,12 +541,12 @@ public class Dashboard extends javax.swing.JFrame {
         content.repaint();
     }//GEN-LAST:event_btn_prinMousePressed
 
-    private void btn_lendsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMousePressed
+    private void btn_ver_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_clienteMousePressed
         resetAll();
-        setColor(btn_lends);
+        setColor(btn_ver_cliente);
 
         // Abrir sección
-        Lendings p1 = new Lendings();
+        VerClientes p1 = new VerClientes();
         p1.setSize(750, 430);
         p1.setLocation(0,0);
         
@@ -554,13 +554,13 @@ public class Dashboard extends javax.swing.JFrame {
         content.add(p1, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_btn_lendsMousePressed
+    }//GEN-LAST:event_btn_ver_clienteMousePressed
 
-    private void btn_returnsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMousePressed
+    private void btn_ing_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_clienteMousePressed
         resetAll();
-        setColor(btn_returns);
+        setColor(btn_ing_cliente);
         // Abrir sección
-        Returns p1 = new Returns();
+        RegistroCliente p1 = new RegistroCliente();
         p1.setSize(750, 430);
         p1.setLocation(0,0);
         
@@ -568,13 +568,13 @@ public class Dashboard extends javax.swing.JFrame {
         content.add(p1, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_btn_returnsMousePressed
+    }//GEN-LAST:event_btn_ing_clienteMousePressed
 
-    private void btn_usersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMousePressed
+    private void btn_act_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_clienteMousePressed
         resetAll();
-        setColor(btn_users);
+        setColor(btn_act_cliente);
         // Abrir sección
-        Users p1 = new Users();
+        ActualizarCliente p1 = new ActualizarCliente();
         p1.setSize(750, 430);
         p1.setLocation(0,0);
         
@@ -582,7 +582,7 @@ public class Dashboard extends javax.swing.JFrame {
         content.add(p1, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_btn_usersMousePressed
+    }//GEN-LAST:event_btn_act_clienteMousePressed
 
     private void btn_ver_ciudadesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_ciudadesMousePressed
         resetAll();
@@ -628,7 +628,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btn_ver_productosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_productosMousePressed
         resetAll();
-        setColor(btn_ing_producto);
+        setColor(btn_ver_productos);
         // Abrir sección
         VerProductos p1 = new VerProductos();
         p1.setSize(750, 430);
@@ -642,7 +642,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btn_act_productoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_productoMousePressed
         resetAll();
-        setColor(btn_ing_producto);
+        setColor(btn_act_producto);
         // Abrir sección
         ActualizarProducto p1 = new ActualizarProducto();
         p1.setSize(750, 430);
@@ -673,13 +673,13 @@ public class Dashboard extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_red_squrMousePressed
 
-    private void btn_lendsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseEntered
-        setColor(btn_lends);
-    }//GEN-LAST:event_btn_lendsMouseEntered
+    private void btn_ver_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_clienteMouseEntered
+        setColor(btn_ver_cliente);
+    }//GEN-LAST:event_btn_ver_clienteMouseEntered
 
-    private void btn_lendsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseExited
+    private void btn_ver_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_clienteMouseExited
         resetAll();
-    }//GEN-LAST:event_btn_lendsMouseExited
+    }//GEN-LAST:event_btn_ver_clienteMouseExited
 
     private void btn_prinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMouseEntered
         setColor(btn_prin);
@@ -689,21 +689,21 @@ public class Dashboard extends javax.swing.JFrame {
         resetAll();
     }//GEN-LAST:event_btn_prinMouseExited
 
-    private void btn_returnsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseEntered
-        setColor(btn_returns);
-    }//GEN-LAST:event_btn_returnsMouseEntered
+    private void btn_ing_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_clienteMouseEntered
+        setColor(btn_ing_cliente);
+    }//GEN-LAST:event_btn_ing_clienteMouseEntered
 
-    private void btn_returnsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseExited
+    private void btn_ing_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ing_clienteMouseExited
         resetAll();
-    }//GEN-LAST:event_btn_returnsMouseExited
+    }//GEN-LAST:event_btn_ing_clienteMouseExited
 
-    private void btn_usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseEntered
-        setColor(btn_users);
-    }//GEN-LAST:event_btn_usersMouseEntered
+    private void btn_act_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_clienteMouseEntered
+        setColor(btn_act_cliente);
+    }//GEN-LAST:event_btn_act_clienteMouseEntered
 
-    private void btn_usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseExited
+    private void btn_act_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_act_clienteMouseExited
         resetAll();
-    }//GEN-LAST:event_btn_usersMouseExited
+    }//GEN-LAST:event_btn_act_clienteMouseExited
 
     private void btn_ver_ciudadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_ciudadesMouseEntered
         setColor(btn_ver_ciudades);
@@ -783,9 +783,9 @@ public class Dashboard extends javax.swing.JFrame {
     
     void resetAll(){
         resetColor(btn_prin);
-        resetColor(btn_lends);
-        resetColor(btn_returns);
-        resetColor(btn_users);
+        resetColor(btn_ver_cliente);
+        resetColor(btn_ing_cliente);
+        resetColor(btn_act_cliente);
         
         resetColor(btn_ver_productos);
         resetColor(btn_ing_producto);
@@ -838,14 +838,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Title;
     private javax.swing.JLabel app_name;
     private javax.swing.JPanel btn_act_ciudad;
+    private javax.swing.JPanel btn_act_cliente;
     private javax.swing.JPanel btn_act_producto;
     private javax.swing.JPanel btn_ing_ciudad;
+    private javax.swing.JPanel btn_ing_cliente;
     private javax.swing.JPanel btn_ing_producto;
-    private javax.swing.JPanel btn_lends;
     private javax.swing.JPanel btn_prin;
-    private javax.swing.JPanel btn_returns;
-    private javax.swing.JPanel btn_users;
     private javax.swing.JPanel btn_ver_ciudades;
+    private javax.swing.JPanel btn_ver_cliente;
     private javax.swing.JPanel btn_ver_productos;
     public static javax.swing.JPanel content;
     private javax.swing.JLabel exit;

@@ -349,10 +349,10 @@ public class DBMethods {
             prepStmt = conn.prepareStatement("INSERT INTO CLIENTE (CODCLIENTE, CODCIUDAD, NOMBRECLIENTE, APELLIDOCLIENTE, CORREOCLIENTE, SALARIO) VALUES (?, ?, ?, ?, ?, ?)");
             prepStmt.setString(1, codCliente);
             prepStmt.setString(2, codCiudad);
-            prepStmt.setString(3,nombreCliente);
+            prepStmt.setString(3, nombreCliente);
             prepStmt.setString(4, apellidoCliente);
-            prepStmt.setString(5,correoCliente);
-            prepStmt.setString(6,salario);
+            prepStmt.setString(5, correoCliente);
+            prepStmt.setString(6, salario);
             prepStmt.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -365,11 +365,9 @@ public class DBMethods {
             prepStmt = conn.prepareStatement("DELETE FROM CLIENTE WHERE CODCLIENTE = ?");
             prepStmt.setString(1,String.valueOf(id));
             prepStmt.executeUpdate();
-
         }catch(SQLException e){
             e.printStackTrace();
         }
-
     }
 
     public void updateCliente(int id,String codCiudad, String nombreCliente, String apellidoCliente, String correoCliente, String salario){
@@ -414,12 +412,10 @@ public class DBMethods {
     return selectedCliente;
     }
 
-    public ArrayList<ClienteEncapsulation> clienteView(){
-        ArrayList<ClienteEncapsulation> selectedCliente = new ArrayList<>();
-        ClienteEncapsulation cliente;
+    public ArrayList<String[]> clienteView(){
+        ArrayList<String[]> selectedCliente = new ArrayList<>();
         try{
             prepStmt = conn.prepareStatement("SELECT * FROM CLIENTE");
-            //prepStmt.setString(1, String.valueOf(id));
             rs = prepStmt.executeQuery();
 
             while(rs.next()){
@@ -429,12 +425,9 @@ public class DBMethods {
                 String apellidoCliente = rs.getString("APELLIDOCLIENTE");
                 String correoCliente = rs.getString("CORREOCLIENTE");
                 String salario = rs.getString("SALARIO");
-
-                cliente = new ClienteEncapsulation(codCliente,codCiudad, nombreCliente, apellidoCliente, correoCliente, salario);
+                String[] cliente = {codCliente,codCiudad, nombreCliente, apellidoCliente, correoCliente, salario};
                 selectedCliente.add(cliente);
-
             }
-
         }catch(SQLException e){
             e.printStackTrace();
         }
