@@ -630,5 +630,20 @@ public class DBMethods {
         return view;
     }
 
-
+    public void deleteFactura(int id) {
+        try {
+            prepStmt = conn.prepareStatement("DELETE FROM DETALLE_POR_PRODUCTO WHERE NUMFACTURA = ?");
+            prepStmt.setString(1, String.valueOf(id));
+            prepStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            prepStmt = conn.prepareStatement("DELETE FROM FACTURA WHERE NUMFACTURA = ?");
+            prepStmt.setString(1, String.valueOf(id));
+            prepStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

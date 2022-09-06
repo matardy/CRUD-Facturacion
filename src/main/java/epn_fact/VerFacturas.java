@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +30,8 @@ public class VerFacturas extends javax.swing.JPanel {
     DefaultListModel modeloLista = new DefaultListModel();
     
     private ArrayList<String[]> clientes;
+    
+    String selectedFactura = "";
 
     /**
      * Creates new form Principal
@@ -74,6 +77,8 @@ public class VerFacturas extends javax.swing.JPanel {
         Title = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         txtNombre = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -85,6 +90,8 @@ public class VerFacturas extends javax.swing.JPanel {
         txtFechaInicio = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         txtFechaFin = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        txtNumero = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -113,6 +120,29 @@ public class VerFacturas extends javax.swing.JPanel {
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 30));
 
+        btnEliminar.setBackground(new java.awt.Color(18, 90, 173));
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarMousePressed(evt);
+            }
+        });
+        btnEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Eliminar");
+        btnEliminar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 265, 90, 30));
+
         btnBuscar.setBackground(new java.awt.Color(18, 90, 173));
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,7 +164,7 @@ public class VerFacturas extends javax.swing.JPanel {
         jLabel4.setText("Buscar");
         btnBuscar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, -1));
 
-        add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 80, 30));
+        add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 90, 30));
 
         tblDetalles.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         tblDetalles.setModel(new javax.swing.table.DefaultTableModel(
@@ -268,6 +298,17 @@ public class VerFacturas extends javax.swing.JPanel {
             }
         });
         add(txtFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 110, 30));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 153, 255));
+        jSeparator5.setPreferredSize(new java.awt.Dimension(250, 10));
+        add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 180, 10));
+
+        txtNumero.setForeground(new java.awt.Color(102, 102, 102));
+        txtNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumero.setText("Número de factura seleccionada");
+        txtNumero.setBorder(null);
+        txtNumero.setEnabled(false);
+        add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 180, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
@@ -334,12 +375,12 @@ public class VerFacturas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtFechaFinMousePressed
 
     private void tblFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFacturasMouseClicked
-        String selectedFactura = "";
+        selectedFactura = "";
         JTable source = (JTable) evt.getSource();
         int row = source.rowAtPoint(evt.getPoint());
         int column = source.columnAtPoint(evt.getPoint());
         selectedFactura = source.getModel().getValueAt(row ,column) + "" ;
-
+        txtNumero.setText(selectedFactura);
         dtmDetalles.setRowCount(0);
         ArrayList<String[]> selectedDetalle = new ArrayList<>();
         selectedDetalle = methods.detalleFacturaView(selectedFactura);
@@ -347,6 +388,23 @@ public class VerFacturas extends javax.swing.JPanel {
             dtmDetalles.addRow(i);
         }
     }//GEN-LAST:event_tblFacturasMouseClicked
+
+    private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
+        setColor(btnEliminar);
+    }//GEN-LAST:event_btnEliminarMouseEntered
+
+    private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
+        resetColor(btnEliminar);
+    }//GEN-LAST:event_btnEliminarMouseExited
+
+    private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
+        
+        methods.deleteFactura(Integer.parseInt(selectedFactura));
+        JOptionPane.showMessageDialog(null, "Factura eliminada correctamente");
+        try {
+            getFacturas();
+        } catch (Exception ex) { }
+    }//GEN-LAST:event_btnEliminarMousePressed
 
     void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
@@ -405,16 +463,20 @@ public class VerFacturas extends javax.swing.JPanel {
     private javax.swing.JLabel Title1;
     private javax.swing.JPanel body;
     private javax.swing.JPanel btnBuscar;
+    private javax.swing.JPanel btnEliminar;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable tblDetalles;
     private javax.swing.JTable tblFacturas;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaInicio;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }
