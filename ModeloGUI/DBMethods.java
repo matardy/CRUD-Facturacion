@@ -198,6 +198,14 @@ public class DBMethods {
 
 
     // --------------        PRODUCTO       -----------
+
+    /***
+     * Inserta un parametro del tipo producto en la base de deatos
+     * @param nomProd
+     * @param descProd
+     * @param unidadProd
+     * @param precioProd
+     */
     public void setProducto(String nomProd, String descProd, String unidadProd, String precioProd){
         String auxCod = "";
         try{
