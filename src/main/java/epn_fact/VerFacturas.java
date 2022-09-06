@@ -12,7 +12,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.jdesktop.swingx.autocomplete.ObjectToStringConverter;
@@ -54,16 +53,12 @@ public class VerFacturas extends javax.swing.JPanel {
         dtmDetalles.addColumn("Precio de Venta");
         dtmDetalles.addColumn("Categoría");
         tblDetalles.setModel(dtmDetalles);
-        
-        llenar();
-        cargarSugerencias();
-        
+            
         try {
             getFacturas();
-        } catch (Exception ex) {
-            
-        }
-        
+        } catch (Exception ex) { }
+        llenar();
+        cargarSugerencias();
     }
 
     /**
@@ -114,9 +109,6 @@ public class VerFacturas extends javax.swing.JPanel {
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtNombreMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                txtNombreMouseReleased(evt);
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 30));
@@ -260,9 +252,6 @@ public class VerFacturas extends javax.swing.JPanel {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtFechaInicioMousePressed(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                txtFechaInicioMouseReleased(evt);
-            }
         });
         add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 110, 30));
 
@@ -276,9 +265,6 @@ public class VerFacturas extends javax.swing.JPanel {
         txtFechaFin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtFechaFinMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                txtFechaFinMouseReleased(evt);
             }
         });
         add(txtFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 110, 30));
@@ -298,10 +284,6 @@ public class VerFacturas extends javax.swing.JPanel {
     private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
         resetColor(btnBuscar);
     }//GEN-LAST:event_btnBuscarMouseExited
-
-    private void txtNombreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseReleased
-        //nothing
-    }//GEN-LAST:event_txtNombreMouseReleased
 
     private void btnBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMousePressed
         //Buscar por nombre
@@ -326,8 +308,7 @@ public class VerFacturas extends javax.swing.JPanel {
         if (!txtFechaInicio.getText().equals("Fecha de Inicio") && !txtFechaFin.getText().equals("Fecha de Fin")
                 && !txtFechaInicio.getText().equals("") && txtFechaInicio.getText() != null
                 && !txtFechaFin.getText().equals("") && txtFechaFin.getText() != null) {
-            String ini, fin;
-
+            
             dtmFactura.setRowCount(0);
             ArrayList<String[]> viewFactura = new ArrayList<>();
             viewFactura = methods.facturaFilterFechaView(txtFechaInicio.getText(), txtFechaFin.getText());
@@ -345,20 +326,12 @@ public class VerFacturas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtFechaInicioMousePressed
 
-    private void txtFechaInicioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaInicioMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaInicioMouseReleased
-
     private void txtFechaFinMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaFinMousePressed
         resetAll();
         if (txtFechaFin.getText().equals("Fecha de Fin")) {
             txtFechaFin.setText("");
         }
     }//GEN-LAST:event_txtFechaFinMousePressed
-
-    private void txtFechaFinMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaFinMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaFinMouseReleased
 
     private void tblFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFacturasMouseClicked
         String selectedFactura = "";
@@ -373,9 +346,6 @@ public class VerFacturas extends javax.swing.JPanel {
         for(String[] i : selectedDetalle){
             dtmDetalles.addRow(i);
         }
-        
-        
-        
     }//GEN-LAST:event_tblFacturasMouseClicked
 
     void setColor(JPanel panel){
@@ -426,6 +396,7 @@ public class VerFacturas extends javax.swing.JPanel {
         if (txtFechaFin.getText().equals("") || txtFechaFin.getText() == null || txtFechaFin.getText().equals(" ")) {
             txtFechaFin.setText("Fecha de Fin");
         }
+        
     }
     
 
