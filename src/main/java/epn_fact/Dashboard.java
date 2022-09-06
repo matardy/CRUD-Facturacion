@@ -44,9 +44,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         Background = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        btn_prin = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        btn_genFactura = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         btn_ing_cliente = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,6 +71,9 @@ public class Dashboard extends javax.swing.JFrame {
         btn_ing_ciudad = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        btn_ver_facturas = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         btn_ver_cliente = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -79,6 +82,8 @@ public class Dashboard extends javax.swing.JFrame {
         Header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
+        btn_prin = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         Title = new javax.swing.JPanel();
         red_squr = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
@@ -103,30 +108,30 @@ public class Dashboard extends javax.swing.JFrame {
         Menu.setBackground(new java.awt.Color(13, 71, 161));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_prin.setBackground(new java.awt.Color(21, 101, 192));
-        btn_prin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_prin.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_genFactura.setBackground(new java.awt.Color(21, 101, 192));
+        btn_genFactura.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_genFactura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_prinMouseEntered(evt);
+                btn_genFacturaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_prinMouseExited(evt);
+                btn_genFacturaMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_prinMousePressed(evt);
+                btn_genFacturaMousePressed(evt);
             }
         });
-        btn_prin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_genFactura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_prin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_genFactura.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Principal");
-        btn_prin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Generar Factura");
+        btn_genFactura.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 270, 50));
+        Menu.add(btn_genFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 270, 50));
 
         btn_ing_cliente.setBackground(new java.awt.Color(18, 90, 173));
         btn_ing_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -152,7 +157,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4.setText("Ingresar Cliente");
         btn_ing_cliente.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ing_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+        Menu.add(btn_ing_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
 
         btn_act_cliente.setBackground(new java.awt.Color(18, 90, 173));
         btn_act_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -178,7 +183,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8.setText("Actualizar Cliente");
         btn_act_cliente.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_act_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+        Menu.add(btn_act_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
 
         btn_ver_productos.setBackground(new java.awt.Color(18, 90, 173));
         btn_ver_productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -204,7 +209,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel18.setText("Ver Productos");
         btn_ver_productos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ver_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+        Menu.add(btn_ver_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
 
         btn_act_producto.setBackground(new java.awt.Color(18, 90, 173));
         btn_act_producto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -230,7 +235,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel22.setText("Actualizar Producto");
         btn_act_producto.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_act_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, -1, -1));
+        Menu.add(btn_act_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, -1, -1));
 
         btn_ing_producto.setBackground(new java.awt.Color(18, 90, 173));
         btn_ing_producto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -256,7 +261,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel20.setText("Ingresar Producto");
         btn_ing_producto.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ing_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, -1));
+        Menu.add(btn_ing_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
 
         btn_ver_ciudades.setBackground(new java.awt.Color(18, 90, 173));
         btn_ver_ciudades.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -282,7 +287,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel15.setText("Ver Ciudades");
         btn_ver_ciudades.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ver_ciudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
+        Menu.add(btn_ver_ciudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
         btn_act_ciudad.setBackground(new java.awt.Color(18, 90, 173));
         btn_act_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -308,7 +313,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel17.setText("Actualizar Ciudad");
         btn_act_ciudad.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_act_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
+        Menu.add(btn_act_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, -1, -1));
 
         btn_ing_ciudad.setBackground(new java.awt.Color(18, 90, 173));
         btn_ing_ciudad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -334,7 +339,33 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel12.setText("Ingresar Ciudad");
         btn_ing_ciudad.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ing_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
+        Menu.add(btn_ing_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+
+        btn_ver_facturas.setBackground(new java.awt.Color(18, 90, 173));
+        btn_ver_facturas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_ver_facturas.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_ver_facturas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_ver_facturasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_ver_facturasMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_ver_facturasMousePressed(evt);
+            }
+        });
+        btn_ver_facturas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_ver_facturas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Ver Facturas");
+        btn_ver_facturas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
+
+        Menu.add(btn_ver_facturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         btn_ver_cliente.setBackground(new java.awt.Color(18, 90, 173));
         btn_ver_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -360,7 +391,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel14.setText("Ver Clientes");
         btn_ver_cliente.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_ver_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
+        Menu.add(btn_ver_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
         app_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         app_name.setForeground(new java.awt.Color(255, 255, 255));
@@ -373,35 +404,40 @@ public class Dashboard extends javax.swing.JFrame {
         Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 640));
 
         Header.setBackground(new java.awt.Color(25, 118, 210));
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Administración/Control/Ventas/Facturas");
+        Header.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 39, -1, 30));
 
         fecha.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
         fecha.setText("Hoy es Sábado 3 de Abril del 2022");
+        Header.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 87, -1, 30));
 
-        javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
-        Header.setLayout(HeaderLayout);
-        HeaderLayout.setHorizontalGroup(
-            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(fecha))
-                .addContainerGap(317, Short.MAX_VALUE))
-        );
-        HeaderLayout.setVerticalGroup(
-            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
+        btn_prin.setBackground(new java.awt.Color(21, 101, 192));
+        btn_prin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_prin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_prinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_prinMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_prinMousePressed(evt);
+            }
+        });
+        btn_prin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Principal");
+        btn_prin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 30));
+
+        Header.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 30));
 
         Background.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 750, 150));
 
@@ -773,6 +809,50 @@ public class Dashboard extends javax.swing.JFrame {
         exit.setForeground(new Color(102,102,102));
     }//GEN-LAST:event_exitMouseExited
 
+    private void btn_genFacturaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_genFacturaMouseEntered
+        setColor(btn_genFactura);
+    }//GEN-LAST:event_btn_genFacturaMouseEntered
+
+    private void btn_genFacturaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_genFacturaMouseExited
+        resetAll();
+    }//GEN-LAST:event_btn_genFacturaMouseExited
+
+    private void btn_genFacturaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_genFacturaMousePressed
+        resetAll();
+        setColor(btn_genFactura);
+        // Abrir sección
+        CrearFactura p1 = new CrearFactura();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_genFacturaMousePressed
+
+    private void btn_ver_facturasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_facturasMouseEntered
+        setColor(btn_ver_facturas);
+    }//GEN-LAST:event_btn_ver_facturasMouseEntered
+
+    private void btn_ver_facturasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_facturasMouseExited
+        resetColor(btn_ver_facturas);
+    }//GEN-LAST:event_btn_ver_facturasMouseExited
+
+    private void btn_ver_facturasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ver_facturasMousePressed
+        resetAll();
+        setColor(btn_genFactura);
+        // Abrir sección
+        VerFacturas p1 = new VerFacturas();
+        p1.setSize(750, 430);
+        p1.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(p1, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_ver_facturasMousePressed
+
 
     void setColor(JPanel panel){
         panel.setBackground(new Color(21,101,192));
@@ -783,6 +863,9 @@ public class Dashboard extends javax.swing.JFrame {
     
     void resetAll(){
         resetColor(btn_prin);
+        resetColor(btn_ver_facturas);
+        resetColor(btn_genFactura);
+        
         resetColor(btn_ver_cliente);
         resetColor(btn_ing_cliente);
         resetColor(btn_act_cliente);
@@ -840,17 +923,18 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel btn_act_ciudad;
     private javax.swing.JPanel btn_act_cliente;
     private javax.swing.JPanel btn_act_producto;
+    private javax.swing.JPanel btn_genFactura;
     private javax.swing.JPanel btn_ing_ciudad;
     private javax.swing.JPanel btn_ing_cliente;
     private javax.swing.JPanel btn_ing_producto;
     private javax.swing.JPanel btn_prin;
     private javax.swing.JPanel btn_ver_ciudades;
     private javax.swing.JPanel btn_ver_cliente;
+    private javax.swing.JPanel btn_ver_facturas;
     private javax.swing.JPanel btn_ver_productos;
     public static javax.swing.JPanel content;
     private javax.swing.JLabel exit;
     private javax.swing.JLabel fecha;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -865,9 +949,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
